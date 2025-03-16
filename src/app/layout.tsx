@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono, Allura, DM_Mono } from "next/font/google";
 import "./globals.css";
+import BackgroundStyle from "@/components/apps/BackgroundStyle";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dm_mono = DM_Mono({
+  variable: "--font-dm-mono",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const allura = Allura({
+  variable: "--font-allura",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -25,9 +38,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${geistMono.variable} ${allura.variable} ${dm_mono.variable} ${inter.className} antialiased`}
       >
-        {children}
+        <BackgroundStyle type="dotted">{children}</BackgroundStyle>
       </body>
     </html>
   );
