@@ -22,9 +22,10 @@ export const postType = defineType({
       },
     }),
     defineField({
-      name: "hashtag",
-      title: "Hashtag",
-      type: "string",
+      name: "series",
+      title: "Series",
+      type: "reference",
+      to: { type: "series" },
     }),
     defineField({
       name: "sapo",
