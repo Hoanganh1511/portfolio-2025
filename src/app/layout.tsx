@@ -41,6 +41,7 @@ export default function RootLayout({
         className={`${inter.variable} ${geistMono.variable} ${allura.variable} ${dm_mono.variable} ${inter.className} antialiased`}
       >
         <BackgroundStyle type="dotted">{children}</BackgroundStyle>
+        <div id="modal-root"></div>
       </body>
     </html>
   );

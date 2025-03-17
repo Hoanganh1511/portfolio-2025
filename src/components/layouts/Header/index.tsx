@@ -8,10 +8,13 @@ const Header = () => {
   return (
     <div className="p-[32px]">
       <div className="flex justify-between">
-        <div className="relative font-allura text-[32px] text-textColor">
+        <Link
+          href="/"
+          className="relative font-allura text-[32px] text-textColor"
+        >
           Tuấn
           <span className="absolute top-[40%] left-[65%]">Ah</span>
-        </div>
+        </Link>
         <ul className="flex items-center gap-x-[20px]">
           {navsConfig.map((nav) => {
             return (
