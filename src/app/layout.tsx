@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono, Allura, DM_Mono } from "next/font/google";
 import "./globals.css";
 import BackgroundStyle from "@/components/apps/BackgroundStyle";
+import TanstackProvider from "@/providers/tanstack-provider";
 
 const dm_mono = DM_Mono({
   variable: "--font-dm-mono",
@@ -40,8 +41,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${geistMono.variable} ${allura.variable} ${dm_mono.variable} ${inter.className} antialiased`}
       >
-        <BackgroundStyle type="dotted">{children}</BackgroundStyle>
-        <div id="modal-root"></div>
+        <TanstackProvider>
+          <BackgroundStyle type="dotted">{children}</BackgroundStyle>
+          <div id="modal-root"></div>
+        </TanstackProvider>
       </body>
     </html>
   );
