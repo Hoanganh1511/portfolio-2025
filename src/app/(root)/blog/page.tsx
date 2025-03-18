@@ -12,11 +12,7 @@ const BlogPage = async () => {
   const seriesRes = await getAllSeries();
 
   const { series } = seriesRes;
-  // const { articles } = data;
-  // console.log("data =>", data);
-  // if (!articles || articles.length <= 0) return null;
-  // console.log(articles[0].series);
-  console.log("series =>", series);
+
   return (
     <div className="max-w-xl mx-auto px-[30px] pb-[50px]">
       <div className="grid grid-cols-12 gap-x-[20px] gap-y-[30px]">
@@ -26,7 +22,7 @@ const BlogPage = async () => {
               key={idx}
               className="col-span-12 grid grid-cols-12 gap-x-[20px]"
             >
-              <div className="col-span-2">
+              {/* <div className="col-span-2">
                 <h2 className="text-[26px] font-bold">{_.name}</h2>
                 <Link
                   href="/"
@@ -34,8 +30,8 @@ const BlogPage = async () => {
                 >
                   See all <GoArrowRight className="ml-[6px] text-[20px]" />{" "}
                 </Link>
-              </div>
-              <div className="col-span-10">
+              </div> */}
+              <div className="col-span-12">
                 <CarouselCard seriesSlug={_.slug.current} />
               </div>
             </div>

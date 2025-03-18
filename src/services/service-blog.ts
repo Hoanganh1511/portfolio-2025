@@ -10,7 +10,6 @@ export const getArticlesByCategory = async (params: IParams) => {
                ...,
                
              } | order(_updatedAt desc)`;
-  console.log(params.category);
   return client.fetch(querySanity, { series: params.category });
 };
 
@@ -19,7 +18,7 @@ export const getAllSeries = async () => {
                ...,
               
             
-             } | order(_updatedAt desc)`;
+             } | order(_updatedAt asc)`;
   //  "series": *[_type == 'series' && slug.current == $series][0]
   const data = await client.fetch(querySanity, {
     // series: params.category,
@@ -33,4 +32,13 @@ export const getAllSeries = async () => {
   return {
     series: data,
   };
+};
+
+export const getServerPost = async (slug: string) => {
+  return await client.fetch(
+    groq`*[_type=="post" && slug.current == $slug ][0]{ ... }`,
+    {
+      slug,
+    }
+  );
 };

@@ -76,3 +76,14 @@
     @apply bg-background text-foreground;
   }
 }
+#article {
+  transition-property: opacity, transform, filter;
+  transition-timing-function: ease-in-out;
+  transition-duration: 350ms;
+}
+
+.page-transition {
+  opacity: 0;
+  transform: translateY(20px);
+  /* filter: blur(12px); */
+}

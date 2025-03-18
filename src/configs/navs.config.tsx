@@ -16,7 +16,7 @@ export const navsConfig = [
   {
     id: 3,
     text: "Photos",
-    href: "/blog",
+    href: "/photos",
   },
 ];
 

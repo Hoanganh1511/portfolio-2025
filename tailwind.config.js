@@ -31,6 +31,8 @@ module.exports = {
         allura: ["var(--font-allura)"],
         inter: ["var(--font-inter)"],
         dm_mono: ["var(--font-dm-mono)"],
+        noto_sans: ["var(--font-noto-sans)"],
+        ibm_plex_mono: ["var(--font-ibm-plex-mono)"],
       },
       colors: {
         background: "var(--background)",

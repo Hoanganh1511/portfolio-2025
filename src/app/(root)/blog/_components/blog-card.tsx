@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { IPost } from "@/types/service-api";
+import { Link } from "next-view-transitions";
 const BlogCard = ({ data }: { data: IPost }) => {
   return (
-    <Link href="/" className="group">
+    <Link href={`/blog/${data.slug.current}`} className="group">
       <div className="group flex flex-col gap-y-[20px]">
         {/* Visual */}
         {/* <div className="relative w-full aspect-[16/9]">
