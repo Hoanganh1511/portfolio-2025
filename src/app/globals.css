@@ -76,6 +76,9 @@
     @apply bg-background text-foreground;
   }
 }
+body {
+  background: #ffffff;
+}
 #article {
   transition-property: opacity, transform, filter;
   transition-timing-function: ease-in-out;

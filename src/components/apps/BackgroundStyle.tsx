@@ -27,7 +27,7 @@ const BackgroundStyle = ({
     }
     case "dotted": {
       return (
-        <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(rgba(0,0,0,0.13)_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:16px_16px]">
+        <div className="bg-background bg-[radial-gradient(rgba(0,0,0,0.12)_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:16px_16px]">
           {children}
         </div>
       );

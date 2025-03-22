@@ -8,7 +8,7 @@ module.exports = {
       maxWidth: {
         ...defaultTheme.maxWidth, // Spread default maxWidth values
         sm: "560px", // Full width on small screens
-        md: "768px", // Custom width for medium screens
+        md: "800px", // Custom width for medium screens
         lg: "1024px", // Custom width for large screens
         xl: "1280px", // Custom width for extra-large screens
         xl: "1460px", // Add a custom maxWidth value
@@ -16,7 +16,7 @@ module.exports = {
       container: {
         screens: {
           sm: "560px", // Full width on small screens
-          md: "768px", // Custom width for medium screens
+          md: "800px", // Custom width for medium screens
           lg: "1024px", // Custom width for large screens
           xl: "1280px", // Custom width for extra-large screens
           xl: "1460px",

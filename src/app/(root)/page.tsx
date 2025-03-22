@@ -40,6 +40,9 @@ export default function Home() {
               icon={"/icons/framer-motion.png"}
               label="Framer Motion"
             />
+            <br />
+            <TechBadge icon={"/icons/framer-motion.png"} label="Apollo" />
+            <TechBadge icon={"/icons/framer-motion.png"} label="GraphQL" />
           </div>
         </div>
       </div>

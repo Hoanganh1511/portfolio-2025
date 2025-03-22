@@ -2,6 +2,7 @@ import RichTextComponent from "@/components/rich-text-component";
 import { getServerPost } from "@/services/service-blog";
 import React from "react";
 import { PortableText } from "next-sanity";
+
 const DetailBlogPage = async ({
   params,
 }: {

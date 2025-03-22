@@ -44,7 +44,7 @@ const Header = () => {
     );
   }
   return (
-    <div className="p-[32px]">
+    <div className="max-w-lg mx-auto px-[32px] py-[12px]">
       <div className="flex justify-between">
         <Link
           href="/"

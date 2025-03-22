@@ -1,5 +1,7 @@
 import Link from "next/link";
 import SyntaxHighlighterField from "./syntax-highlighter-field";
+import Image from "next/image";
+import { urlFor } from "@/lib/sanity/image";
 const TableRow = ({ row }: { row: any }) => {
   return (
     <tr>
@@ -11,7 +13,17 @@ const TableRow = ({ row }: { row: any }) => {
 };
 const RichTextComponent = {
   types: {
-    image: ({ value }: any) => <div></div>,
+    image: ({ value }: any) => (
+      <div className="w-full">
+        <Image
+          src={urlFor(value)?.url()}
+          alt="keyboard"
+          width={1280}
+          height={606}
+          className="w-full aspect-[1280/606] rounded-[12px]"
+        />
+      </div>
+    ),
     callToAction: ({ value, isInline }: any) =>
       isInline ? <a></a> : <div></div>,
     code: ({ value }: any) => {
@@ -64,7 +76,7 @@ const RichTextComponent = {
       </blockquote>
     ),
     normal: ({ children }: any) => (
-      <p className="odd:border-red-500 block leading-[30.6px] text-[18px] my-[18px] text-[rgba(0,0,0,.87)] font-poppins">
+      <p className="odd:border-red-500 block leading-[30.6px] text-[16px] my-[18px] text-[rgba(0,0,0,.87)] font-poppins">
         {children}
       </p>
     ),
@@ -79,7 +91,7 @@ const RichTextComponent = {
         <Link
           href={value.href}
           rel={rel}
-          className="underline font-bold decoration-black hover:text-blue-500 hover:decoration-blue-500"
+          className="underline font-bold decoration-[#D84040]  hover:text-[#A31D1D] "
         >
           {children}
         </Link>
