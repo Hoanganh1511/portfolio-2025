@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import ThemeToggle from "@/components/apps/ThemeToggle";
 import TransitionLink from "@/components/transition-link";
 import { iconNavsConfig, navsConfig } from "@/configs/navs.config";
@@ -48,10 +49,17 @@ const Header = () => {
       <div className="flex justify-between">
         <Link
           href="/"
-          className="relative font-allura text-[32px] text-textColor"
+          className="relative flex items-center font-semibold text-[22px] text-textColor"
         >
-          Tuấn Anh
-          <span className="absolute top-[40%] left-[65%]"></span>
+          <Image
+            src="/assets/images/avatar.png"
+            alt=""
+            width={400}
+            height={400}
+            className="mr-[12px] border-[2px] size-[60px]  object-contain border-white rounded-full "
+          />
+          TuanAnh Notebook
+          {/* <span className="absolute top-[40%] left-[65%]"></span> */}
         </Link>
         <ul className="flex items-center gap-x-[20px]">
           {navsConfig.map((nav) => {

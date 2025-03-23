@@ -6,6 +6,7 @@ import {
   DM_Mono,
   IBM_Plex_Mono,
   Noto_Sans,
+  DM_Sans,
 } from "next/font/google";
 import "./globals.css";
 import BackgroundStyle from "@/components/apps/BackgroundStyle";
@@ -34,7 +35,7 @@ const allura = Allura({
   weight: ["400"],
 });
 
-const inter = Inter({
+const inter = DM_Sans({
   variable: "--font-inter",
   subsets: ["latin"],
 });

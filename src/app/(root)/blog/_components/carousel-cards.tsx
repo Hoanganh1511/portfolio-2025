@@ -23,6 +23,8 @@ const CarouselCard = ({ seriesSlug }: { seriesSlug: string }) => {
   if (isLoading) return <p>Loading...</p>;
   if (!data || data.length === 0)
     return <p>Danh mục này chưa có bài viết nào</p>;
+  console.log(data);
+
   return (
     <Swiper
       spaceBetween={40}

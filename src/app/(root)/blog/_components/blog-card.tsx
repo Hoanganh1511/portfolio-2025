@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { IPost } from "@/types/service-api";
 import { Link } from "next-view-transitions";
+import { formatDate } from "@/lib/helpers/date";
 const BlogCard = ({ data }: { data: IPost }) => {
   return (
     <Link href={`/blog/${data.slug.current}`} className="group">
@@ -21,11 +22,10 @@ const BlogCard = ({ data }: { data: IPost }) => {
             {/* My plan to create this website */}
             {data.title}
           </h3>
-          <p className="mt-[8px] text-[14.5px] font-inter text-textColor line-clamp-3">
-            {data.sapo}
-            {/* Descriptive Text. Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Sed est error repellat veritatis. */}
+          <p className="mt-[8px] text-[12.5px] font-inter text-textColor font-medium opacity-70 line-clamp-3">
+            by Tuấn Anh - {formatDate(data._updatedAt)}
           </p>
+          {/* <p>{formatDate(data._updatedAt)}</p> */}
         </div>
       </div>
     </Link>

@@ -31,17 +31,21 @@ const RichTextComponent = {
     },
   },
   list: {
-    bullet: ({ children }: any) => <ul className="mt-4">{children}</ul>,
-    number: ({ children }: any) => <ol className="mt-4">{children}</ol>,
+    bullet: ({ children }: any) => (
+      <ul className="mt-4 pl-[40px]">{children}</ul>
+    ),
+    number: ({ children }: any) => (
+      <ol className="mt-4 pl-[40px]">{children}</ol>
+    ),
   },
   listItem: {
     bullet: ({ children }: any) => (
-      <li className="ml-8 mt-2 list-disc leading-[30.6px] text-[18px]  text-[rgba(0,0,0,.87)] font-poppins">
+      <li className="ml-8 mt-2 list-disc leading-[30.6px]   text-[rgba(0,0,0,.87)] font-poppins">
         {children}
       </li>
     ),
     number: ({ children }: any) => (
-      <li className="mt-2 leading-[30.6px] text-[18px]  text-[rgba(0,0,0,.87)] font-poppins">
+      <li className="mt-2 leading-[30.6px]   text-[rgba(0,0,0,.87)] font-poppins">
         {children}
       </li>
     ),
@@ -49,14 +53,12 @@ const RichTextComponent = {
   block: {
     h1: ({ children }: any) => <h1>{children}</h1>,
     h2: ({ children }: any) => (
-      <h2 className="block py-[22px] text-[28px] leading-normal font-poppins font-semibold">
+      <h2 className="block py-[8px] text-[28px] leading-normal font-poppins font-semibold">
         {children}
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="mt-10 mb-4 text-[16.5px] text-[#333333] font-bold">
-        {children}
-      </h3>
+      <h3 className=" mb-3 text-[18px] text-[#333333] font-bold">{children}</h3>
     ),
     h4: ({ children }: any) => (
       <h4 className="my-[15px] pt-[5px] text-[14.5px] text-[#333333] font-semibold">
@@ -76,7 +78,7 @@ const RichTextComponent = {
       </blockquote>
     ),
     normal: ({ children }: any) => (
-      <p className="odd:border-red-500 block leading-[30.6px] text-[16px] my-[18px] text-[rgba(0,0,0,.87)] font-poppins">
+      <p className="odd:border-red-500 block leading-[1.45rem] text-[16px] my-[18px] text-[rgba(0,0,0,.87)] font-poppins">
         {children}
       </p>
     ),
