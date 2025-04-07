@@ -18,7 +18,7 @@ const BlogCard = ({ data }: { data: IPost }) => {
         </div> */}
         {/*Infor Description Text */}
         <div>
-          <h3 className="group-hover:opacity-[0.7] duration-100 font-inter text-[18px] font-bold">
+          <h3 className="group-hover:opacity-[0.7] duration-100 font-inter text-[16px] font-bold">
             {/* My plan to create this website */}
             {data.title}
           </h3>

@@ -36,13 +36,10 @@ export default function Home() {
               icon={"/icons/styled-components.svg"}
               label="Styled-components"
             />
-            <TechBadge
-              icon={"/icons/framer-motion.png"}
-              label="Framer Motion"
-            />
+            <TechBadge icon={"/icons/motion.avif"} label="Motion" />
             <br />
-            <TechBadge icon={"/icons/framer-motion.png"} label="Apollo" />
-            <TechBadge icon={"/icons/framer-motion.png"} label="GraphQL" />
+            {/* <TechBadge icon={"/icons/framer-motion.png"} label="Apollo" /> */}
+            <TechBadge icon={"/icons/graphql.png"} label="GraphQL" />
           </div>
         </div>
       </div>

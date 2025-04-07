@@ -14,7 +14,7 @@ const BlogPage = async () => {
   // const { series } = seriesRes;
 
   return (
-    <div className="max-w-xl mx-auto px-[30px] pb-[50px]">
+    <div className="max-w-lg mx-auto px-[30px] pb-[50px]">
       <div className="grid grid-cols-12 gap-x-[20px] gap-y-[30px]">
         {["optimize-performance", "interview-challenge"].map(
           (_: string, idx: number) => {

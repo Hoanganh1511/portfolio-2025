@@ -11,7 +11,7 @@ module.exports = {
         md: "800px", // Custom width for medium screens
         lg: "1024px", // Custom width for large screens
         xl: "1280px", // Custom width for extra-large screens
-        xl: "1460px", // Add a custom maxWidth value
+        "2xl": "1460px", // Add a custom maxWidth value
       },
       container: {
         screens: {
@@ -19,7 +19,7 @@ module.exports = {
           md: "800px", // Custom width for medium screens
           lg: "1024px", // Custom width for large screens
           xl: "1280px", // Custom width for extra-large screens
-          xl: "1460px",
+          "2xl": "1460px",
         },
       },
       borderRadius: {
