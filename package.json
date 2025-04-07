@@ -28,7 +28,10 @@
     "styled-components": "^6.1.15",
     "swiper": "^11.2.5",
     "tailwind-merge": "^3.0.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "next-view-transitions": "^0.0.20",
+    "react-syntax-highlighter": "^15.5.0",
+    "@tanstack/react-query": "^5.29.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
