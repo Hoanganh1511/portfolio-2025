@@ -58,10 +58,10 @@ const RichTextComponent = {
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className=" mb-3 text-[18px] text-[#333333] font-bold">{children}</h3>
+      <h3 className=" mb-3 text-[22px] text-[#333333] font-bold">{children}</h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className="my-[15px] pt-[5px] text-[14.5px] text-[#333333] font-semibold">
+      <h4 className="my-[15px] pt-[5px] text-[18px] text-[#333333] font-semibold">
         {children}
       </h4>
     ),
