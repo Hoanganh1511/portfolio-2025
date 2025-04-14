@@ -8,28 +8,20 @@ import { GoArrowRight } from "react-icons/go";
 import { getAllSeries, getArticlesByCategory } from "@/services/service-blog";
 import CarouselCard from "./_components/carousel-cards";
 import { Series } from "@/types/service-api";
+import MenuLeft from "./_components/menu-left";
 const BlogPage = async () => {
-  // const seriesRes = await getAllSeries();
+  const seriesRes = await getAllSeries();
 
-  // const { series } = seriesRes;
-
+  const { series } = seriesRes;
   return (
-    <div className="max-w-lg mx-auto px-[30px] pb-[50px]">
-      <div className="grid grid-cols-12 gap-x-[20px] gap-y-[30px]">
-        {["optimize-performance", "interview-challenge"].map(
-          (_: string, idx: number) => {
-            return (
-              <div
-                key={idx}
-                className="col-span-12 grid grid-cols-12 gap-x-[20px]"
-              >
-                <div className="col-span-12">
-                  <CarouselCard seriesSlug={_} />
-                </div>
-              </div>
-            );
-          }
-        )}
+    <div className="max-w-lg w-full mx-auto  pb-[50px]">
+      <div className="mt-[20px] flex flex-col gap-y-[20px]">
+        <div className=" py-[15px] px-[30px] bg-white rounded-[18px]">
+          <MenuLeft series={series || []} />
+        </div>
+        <div className="flex-1 p-[30px]  gap-x-[20px] gap-y-[30px] bg-white rounded-[18px]">
+          <CarouselCard />
+        </div>
       </div>
     </div>
   );

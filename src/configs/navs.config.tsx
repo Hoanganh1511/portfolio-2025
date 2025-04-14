@@ -5,16 +5,21 @@ import { FaThreads, FaInstagram, FaYoutube } from "react-icons/fa6";
 export const navsConfig = [
   {
     id: 1,
+    text: "About",
+    href: "/",
+  },
+  {
+    id: 2,
     text: "Blog",
     href: "/blog",
   },
   {
-    id: 2,
+    id: 3,
     text: "Projects",
     href: "/projects",
   },
   {
-    id: 3,
+    id: 4,
     text: "What I Uses",
     href: "/photos",
   },

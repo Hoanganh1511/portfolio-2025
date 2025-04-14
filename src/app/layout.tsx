@@ -13,6 +13,7 @@ import BackgroundStyle from "@/components/apps/BackgroundStyle";
 import TanstackProvider from "@/providers/tanstack-provider";
 import Header from "@/components/layouts/Header";
 import { ViewTransitions } from "next-view-transitions";
+import Navigation from "@/components/layouts/Navigation";
 const noto_sans = Noto_Sans({
   variable: "--font-noto-sans",
   subsets: ["latin"],
@@ -58,15 +59,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${geistMono.variable} ${allura.variable} ${dm_mono.variable} ${ibm_plex_mono.variable} ${noto_sans.variable} ${inter.className} antialiased`}
+        className={`${inter.variable} ${geistMono.variable} ${allura.variable} ${dm_mono.variable} ${ibm_plex_mono.variable} ${noto_sans.variable} ${inter.className}  antialiased`}
       >
         <TanstackProvider>
-          <BackgroundStyle type="dotted">
-            <ViewTransitions>
-              <Header />
-              {children}
-            </ViewTransitions>
-          </BackgroundStyle>
+          {/* <BackgroundStyle type="dotted"> */}
+          <ViewTransitions>
+            <Header />
+            <Navigation />
+
+            {children}
+          </ViewTransitions>
+          {/* </BackgroundStyle> */}
           <div id="modal-root"></div>
         </TanstackProvider>
       </body>

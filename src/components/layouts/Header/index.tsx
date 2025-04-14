@@ -5,7 +5,9 @@ import TransitionLink from "@/components/transition-link";
 import { iconNavsConfig, navsConfig } from "@/configs/navs.config";
 import React from "react";
 import { useTransitionRouter, Link } from "next-view-transitions";
+import { usePathname } from "next/navigation";
 const Header = () => {
+  const pathname = usePathname();
   const router = useTransitionRouter();
   function slideInOut() {
     document.documentElement.animate(
@@ -45,11 +47,11 @@ const Header = () => {
     );
   }
   return (
-    <div className="max-w-lg mx-auto px-[32px] py-[12px]">
-      <div className="flex justify-between">
+    <div className=" bg-white rounded-b-[18px]">
+      <div className="max-w-lg mx-auto  py-[12px] flex justify-between">
         <Link
           href="/"
-          className="relative flex items-center font-semibold text-[22px] text-textColor"
+          className="relative flex items-center font-semibold text-[22px] text-[#192025]"
         >
           <Image
             src="/assets/images/avatar.png"
@@ -59,10 +61,10 @@ const Header = () => {
             className="mr-[12px] border-[2px] size-[60px]  object-contain border-white rounded-full "
           />
           TuanAnh Notebook
-          {/* <span className="absolute top-[40%] left-[65%]"></span> */}
         </Link>
-        <ul className="flex items-center gap-x-[20px]">
+        {/* <ul className="flex items-center gap-x-[20px]">
           {navsConfig.map((nav) => {
+            const isActive = pathname === nav.href;
             return (
               <li key={nav.id}>
                 <Link
@@ -73,7 +75,7 @@ const Header = () => {
                     });
                   }}
                   href={nav.href}
-                  className="group relative text-textColor text-[16.5px] hover:text-black dark:hover:text-white opacity-[0.6] group-hover:opacity-100 transition-colors duration-[200ms]"
+                  className={`${isActive ? "text-primary font-semibold border-b-[2px] border-primary" : "text-textColor hover:text-black dark:hover:text-white  opacity-[0.7]"} group relative  text-[16.5px]  group-hover:opacity-100 transition-colors duration-[200ms]`}
                 >
                   {nav.text}
                   <span
@@ -95,16 +97,11 @@ const Header = () => {
               </li>
             );
           })}
-          {/* <li>
-            <AiOutlineYoutube className="text-[20px] text-textColor opacity-[0.6]" />
-          </li>
-          <li>
-            <LuGithub className="text-[20px] text-textColor  opacity-[0.6]" />
-          </li> */}
+
           <li>
             <ThemeToggle />
           </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

@@ -17,12 +17,12 @@ const BlogCard = ({ data }: { data: IPost }) => {
           />
         </div> */}
         {/*Infor Description Text */}
-        <div>
-          <h3 className="group-hover:opacity-[0.7] duration-100 font-inter text-[16px] font-bold">
+        <div className="flex flex-col">
+          <h3 className="group-hover:opacity-[0.85] duration-100 font-inter text-[16px] flex-1">
             {/* My plan to create this website */}
             {data.title}
           </h3>
-          <p className="mt-[8px] text-[12.5px] font-inter text-textColor font-medium opacity-70 line-clamp-3">
+          <p className="mt-[8px] text-[13.5px] font-inter text-textColor  opacity-70 line-clamp-3">
             by Tuấn Anh - {formatDate(data._updatedAt)}
           </p>
           {/* <p>{formatDate(data._updatedAt)}</p> */}

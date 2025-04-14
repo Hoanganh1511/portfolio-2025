@@ -1,52 +1,46 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import BlogCard from "./blog-card";
 import "swiper/css";
 import { IPost } from "@/types/service-api";
 import { getArticlesByCategory } from "@/services/service-blog";
+import { useSearchParams } from "next/navigation";
 // const data = await getArticlesByCategory({
 //   category: "optimize-performance",
 //   limit: 4,
 // });
-const CarouselCard = ({ seriesSlug }: { seriesSlug: string }) => {
+const CarouselCard = () => {
+  const searchParams = useSearchParams();
+  const s = searchParams.get("s") ?? "";
+  const [currentSeries, setCurrentSeries] = useState("");
   const { data, isLoading, error } = useQuery({
-    queryKey: [`articles-${seriesSlug}`],
+    queryKey: [`articles-${currentSeries}`],
     queryFn: () =>
       getArticlesByCategory({
-        category: seriesSlug,
-        limit: 4,
+        category: currentSeries,
+        limit: 10,
       }),
     staleTime: 1000 * 60 * 5, // Cache for 5 minutes
   });
-  if (isLoading) return <p>Loading...</p>;
+  useEffect(() => {
+    setCurrentSeries(s);
+  }, [s]);
+  if (isLoading) return <p className="text-center">Loading...</p>;
   if (!data || data.length === 0)
-    return <p>Danh mục này chưa có bài viết nào</p>;
-  console.log(data);
+    return <p className="text-center">Danh mục này chưa có bài viết nào</p>;
 
   return (
-    <Swiper
-      spaceBetween={40}
-      slidesPerView={4}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
-      className="!py-[24px]"
-    >
-      <span
-        className={`absolute left-0 top-0 w-full h-[1px] border-b-[1px] border-gray-200`}
-      />
+    <div className="flex flex-col gap-y-[20px]">
       {data.map((item: IPost, idx: number) => {
         return (
-          <SwiperSlide key={idx} className="relative ">
+          <div key={idx} className="relative">
             <BlogCard data={item} />
-            <span
-              className={`absolute left-[calc(100%+20px)] top-1/2 -translate-y-1/2 w-[1px] h-[calc(100%+0px)] border-r-[1px] border-gray-200`}
-            />
-          </SwiperSlide>
+          </div>
         );
       })}
-    </Swiper>
+    </div>
   );
 };
 

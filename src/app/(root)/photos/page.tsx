@@ -19,7 +19,7 @@ const PhotosPage = () => {
   });
   console.log("tech use", data);
   return (
-    <div className="max-w-md mx-auto px-[30px] pb-[50px]">
+    <div className="max-w-md mx-auto px-[30px] pb-[50px] mt-[20px]">
       <div className="relative h-[320px] w-screen left-1/2 -translate-x-1/2 bg-black/90 rounded-[18px] flex justify-center overflow-hidden">
         <Image
           src="/assets/images/uses/workspace_1.jpg"

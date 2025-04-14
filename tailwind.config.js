@@ -9,7 +9,7 @@ module.exports = {
         ...defaultTheme.maxWidth, // Spread default maxWidth values
         sm: "560px", // Full width on small screens
         md: "800px", // Custom width for medium screens
-        lg: "1024px", // Custom width for large screens
+        lg: "974px", // Custom width for large screens
         xl: "1280px", // Custom width for extra-large screens
         "2xl": "1460px", // Add a custom maxWidth value
       },
@@ -17,7 +17,7 @@ module.exports = {
         screens: {
           sm: "560px", // Full width on small screens
           md: "800px", // Custom width for medium screens
-          lg: "1024px", // Custom width for large screens
+          lg: "974px", // Custom width for large screens
           xl: "1280px", // Custom width for extra-large screens
           "2xl": "1460px",
         },
@@ -35,6 +35,7 @@ module.exports = {
         ibm_plex_mono: ["var(--font-ibm-plex-mono)"],
       },
       colors: {
+        primary: "#7ac27d",
         background: "var(--background)",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -46,7 +47,7 @@ module.exports = {
           foreground: "hsl(var(--popover-foreground))",
         },
         textColor: {
-          DEFAULT: "var(--primary-text)",
+          DEFAULT: "#192025",
           origin: "var(--origin-text)",
         },
         secondary: {
