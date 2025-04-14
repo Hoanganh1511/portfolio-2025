@@ -14,6 +14,8 @@ import TanstackProvider from "@/providers/tanstack-provider";
 import Header from "@/components/layouts/Header";
 import { ViewTransitions } from "next-view-transitions";
 import Navigation from "@/components/layouts/Navigation";
+import { SessionProvider } from "next-auth/react";
+import AppProviders from "./AppProviders";
 const noto_sans = Noto_Sans({
   variable: "--font-noto-sans",
   subsets: ["latin"],
@@ -61,7 +63,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${geistMono.variable} ${allura.variable} ${dm_mono.variable} ${ibm_plex_mono.variable} ${noto_sans.variable} ${inter.className}  antialiased`}
       >
-        <TanstackProvider>
+        <AppProviders>
           {/* <BackgroundStyle type="dotted"> */}
           <ViewTransitions>
             <Header />
@@ -71,7 +73,7 @@ export default function RootLayout({
           </ViewTransitions>
           {/* </BackgroundStyle> */}
           <div id="modal-root"></div>
-        </TanstackProvider>
+        </AppProviders>
       </body>
     </html>
   );

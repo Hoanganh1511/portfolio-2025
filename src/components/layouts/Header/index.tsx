@@ -62,6 +62,12 @@ const Header = () => {
           />
           TuanAnh Notebook
         </Link>
+        <button
+          onClick={() => signIn()}
+          className="shadow-primary  rounded-xl bg-white border-0 text-black text-[18px] active:scale-[0.99]"
+        >
+          Sign In FB Dev
+        </button>
         {/* <ul className="flex items-center gap-x-[20px]">
           {navsConfig.map((nav) => {
             const isActive = pathname === nav.href;

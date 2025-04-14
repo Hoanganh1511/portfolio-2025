@@ -1,15 +1,40 @@
 "use client";
-import { navsConfig, socialsConfig } from "@/configs/navs.config";
 import Image from "next/image";
 import Link from "next/link";
 import { TiHeart } from "react-icons/ti";
-import { FaFacebookF } from "react-icons/fa6";
+import { FaFacebookF, FaPause, FaPlay } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import Tooltip from "@/components/common/tooltip";
 import { usePathname } from "next/navigation";
 import ShowMore from "@/components/common/ShowMore";
-
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
 export default function Home() {
+  const { data: session } = useSession();
+  const [playlists, setPlaylists] = useState([]);
+
+  useEffect(() => {
+    if (session) {
+      console.log("check token =>", session?.token.accessToken);
+      axios
+        .get("https://api.spotify.com/v1/playlists/5RGWJr22LfesEULQCmkfh9", {
+          headers: {
+            Authorization: `Bearer ${session?.token.accessToken}`,
+          },
+        })
+        .then((response) => {
+          console.log("response =>", response);
+          setPlaylists(response.data.tracks.items);
+        })
+        .catch((error) => {
+          console.error("Error fetching playlists:", error);
+        });
+    }
+  }, [session]);
+  // console.log("data =>", session);
+  console.log("playlist =>", playlists);
   return (
     <>
       <div className="max-w-lg mx-auto relative h-full grid grid-cols-12 gap-[16px]">
@@ -139,6 +164,46 @@ export default function Home() {
         <div className="col-span-7 flex flex-col gap-y-[16px] h-fit">
           <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Working energy</h3>
+            <div className="flex items-center gap-x-[8px]">
+              <input className="flex-1  h-[4px] bg-gray-300 rounded-md" />
+              <div>04:03</div>
+              <button>
+                <HiOutlineDotsHorizontal />
+              </button>
+              <button className="size-[32px] bg-black rounded-full flex items-center justify-center duration-300 hover:scale-[1.05]">
+                <FaPlay className="text-white text-[12px]" />
+              </button>
+              <button className="size-[32px] bg-black rounded-full flex items-center justify-center duration-300 hover:scale-[1.05]">
+                <FaPause className="text-white text-[12px]" />
+              </button>
+            </div>
+            <ul className="mt-[16px] flex flex-col">
+              {playlists &&
+                playlists.map((_, idx) => {
+                  return (
+                    <li
+                      key={idx}
+                      className={`${idx === 1 ? "bg-gray-100" : ""} py-[6px] px-[12px] rounded-[4px] hover:bg-gray-200 cursor-pointer duration-100`}
+                    >
+                      <p className="text-[14.5px] font-medium">
+                        {_.track.name}
+                      </p>
+                      <div>
+                        {_.track.artists.map((item, idxArtist) => {
+                          return (
+                            <span
+                              key={item.id}
+                              className="text-[13px] text-gray-500"
+                            >
+                              {item.name}
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </li>
+                  );
+                })}
+            </ul>
           </div>
         </div>
       </div>
