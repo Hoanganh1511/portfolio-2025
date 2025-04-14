@@ -20,7 +20,7 @@ const Navigation = () => {
             className="object-cover"
           />
         </div>
-        <div className=" relative flex justify-between">
+        <div className="relative flex justify-between -translate-y-[8px]">
           <div className="flex items-center">
             <div className="mr-[12px] size-[115px] rounded-full border-[2px] border-white">
               <Image
