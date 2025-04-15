@@ -4,7 +4,6 @@ import Link from "next/link";
 import { TiHeart } from "react-icons/ti";
 import { FaFacebookF, FaPause, FaPlay } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
-import Tooltip from "@/components/common/Tooltip";
 import { usePathname } from "next/navigation";
 import ShowMore from "@/components/common/ShowMore";
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -17,6 +16,7 @@ import { getAccessToken } from "@/lib/spotify";
 import SpotifyPlayer from "@/components/common/SpotifyPlayer";
 import WorkingEnergy from "@/components/sections/home/WorkingEnergy";
 import { IPost } from "@/types/service-api";
+import Tooltip from "@/components/common/Tooltip";
 export default function Home() {
   const { data: session } = useSession();
   const [playlists, setPlaylists] = useState([]);
