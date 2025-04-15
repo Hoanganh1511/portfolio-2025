@@ -20,7 +20,7 @@ const RichTextComponent = {
           alt="keyboard"
           width={1280}
           height={606}
-          className="w-full aspect-[1280/606] rounded-[12px]"
+          className="w-full object-contain aspect-[1280/606] rounded-[12px]"
         />
       </div>
     ),
@@ -32,10 +32,10 @@ const RichTextComponent = {
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="mt-4 pl-[40px]">{children}</ul>
+      <ul className="mt-4 pl-[30px]">{children}</ul>
     ),
     number: ({ children }: any) => (
-      <ol className="mt-4 pl-[40px]">{children}</ol>
+      <ol className="mt-4 pl-[30px]">{children}</ol>
     ),
   },
   listItem: {
@@ -53,12 +53,12 @@ const RichTextComponent = {
   block: {
     h1: ({ children }: any) => <h1>{children}</h1>,
     h2: ({ children }: any) => (
-      <h2 className="block py-[8px] text-[28px] leading-normal font-poppins font-semibold">
+      <h2 className="block py-[8px] text-[22px] leading-normal font-poppins font-semibold">
         {children}
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className=" mb-3 text-[22px] text-[#333333] font-bold">{children}</h3>
+      <h3 className=" mb-2 text-[19px] text-[#333333] font-bold">{children}</h3>
     ),
     h4: ({ children }: any) => (
       <h4 className="my-[15px] pt-[5px] text-[18px] text-[#333333] font-semibold">
@@ -66,7 +66,7 @@ const RichTextComponent = {
       </h4>
     ),
     h5: ({ children }: any) => (
-      <h5 className="my-[15px] pt-[5px] text-[14px] text-[#333333] font-semibold">
+      <h5 className="my-[15px] pt-[5px] text-[16.5px] text-[#333333] font-semibold">
         {children}
       </h5>
     ),
@@ -78,7 +78,7 @@ const RichTextComponent = {
       </blockquote>
     ),
     normal: ({ children }: any) => (
-      <p className="odd:border-red-500 block leading-[1.45rem] text-[16px] my-[18px] text-[rgba(0,0,0,.87)] font-poppins">
+      <p className="odd:border-red-500 block leading-[1.425rem] text-[16px] my-[18px] text-[rgba(0,0,0,.87)] font-poppins">
         {children}
       </p>
     ),

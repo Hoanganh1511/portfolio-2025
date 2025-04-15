@@ -1,6 +1,7 @@
 import { getAllProjects } from "@/services/service-project";
 import React, { Suspense } from "react";
 import ListProject from "./_sections/list-project";
+export const dynamic = "force-static";
 const projectData = [
   {
     title: "",

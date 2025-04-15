@@ -29,10 +29,9 @@ const options: NextAuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      console.log("123 session =>", session);
       return {
         ...session,
-        token,
+        ...token,
       };
     },
   },

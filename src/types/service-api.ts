@@ -1,3 +1,4 @@
+import { TypedObject } from "@portabletext/types";
 export interface Slug {
   current: string;
   _type: "slug";
@@ -18,7 +19,7 @@ export interface Series {
 export interface IPost {
   _rev: string;
   _type: "post";
-  body: Record<string, unknown>[]; // Assuming an array of objects
+  body: TypedObject; // Assuming an array of objects
   mainImage: any;
   _updatedAt: string;
   slug: Slug;

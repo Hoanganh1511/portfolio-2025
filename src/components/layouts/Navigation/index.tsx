@@ -1,5 +1,4 @@
 "use client";
-import Tooltip from "@/components/common/tooltip";
 import { navsConfig } from "@/configs/navs.config";
 import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
@@ -7,6 +6,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa6";
 import { TiHeart } from "react-icons/ti";
 import Image from "next/image";
+import Tooltip from "@/components/common/Tooltip";
 const Navigation = () => {
   const pathname = usePathname();
   return (

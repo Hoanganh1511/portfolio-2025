@@ -1,14 +1,8 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import React, { useState } from "react";
-import BlogCard from "./_components/blog-card";
-import Link from "next/link";
-import { GoArrowRight } from "react-icons/go";
+import React from "react";
 import { getAllSeries, getArticlesByCategory } from "@/services/service-blog";
 import CarouselCard from "./_components/carousel-cards";
-import { Series } from "@/types/service-api";
 import MenuLeft from "./_components/menu-left";
+export const dynamic = "force-static";
 const BlogPage = async () => {
   const seriesRes = await getAllSeries();
 
@@ -19,7 +13,7 @@ const BlogPage = async () => {
         <div className=" py-[15px] px-[30px] bg-white rounded-[18px]">
           <MenuLeft series={series || []} />
         </div>
-        <div className="flex-1 p-[30px]  gap-x-[20px] gap-y-[30px] bg-white rounded-[18px]">
+        <div className="flex-1  gap-y-[30px] ">
           <CarouselCard />
         </div>
       </div>

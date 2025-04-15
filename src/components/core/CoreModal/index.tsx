@@ -25,7 +25,7 @@ const CoreModal = ({ isOpen, onClose, children }: IModal) => {
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
             transition={{ duration: 0.5 }}
             key="modal-backdrop"
-            className="absolute top-0 left-0 w-full h-full will-change-[opacity] "
+            className="absolute top-0 left-0 w-full h-full  will-change-[opacity] "
           />
           <div className="modal-wrapper">
             <motion.div
@@ -55,7 +55,7 @@ const CoreModal = ({ isOpen, onClose, children }: IModal) => {
                   duration: 0.3,
                 },
               }}
-              className="min-w-[500px] min-h-[400px] pt-[80px] bg-[#0b1012] rounded-[20px] relative"
+              className="w-[500px] h-[90vh] overflow-scroll pt-[80px] bg-red-500 z-[1999] rounded-[20px] relative"
             >
               <span
                 onClick={handleCloseClick}

@@ -6,6 +6,7 @@ import { iconNavsConfig, navsConfig } from "@/configs/navs.config";
 import React from "react";
 import { useTransitionRouter, Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
+import { signIn } from "next-auth/react";
 const Header = () => {
   const pathname = usePathname();
   const router = useTransitionRouter();

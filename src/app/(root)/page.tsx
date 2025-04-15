@@ -4,37 +4,37 @@ import Link from "next/link";
 import { TiHeart } from "react-icons/ti";
 import { FaFacebookF, FaPause, FaPlay } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
-import Tooltip from "@/components/common/tooltip";
+import Tooltip from "@/components/common/Tooltip";
 import { usePathname } from "next/navigation";
 import ShowMore from "@/components/common/ShowMore";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { useQuery } from "@tanstack/react-query";
+import { getArticlesByCategory } from "@/services/service-blog";
+import { getAccessToken } from "@/lib/spotify";
+import SpotifyPlayer from "@/components/common/SpotifyPlayer";
+import WorkingEnergy from "@/components/sections/home/WorkingEnergy";
+import { IPost } from "@/types/service-api";
 export default function Home() {
   const { data: session } = useSession();
   const [playlists, setPlaylists] = useState([]);
+  const {
+    data: posts,
+    isLoading: postsLoading,
+    error: postsError,
+  } = useQuery({
+    queryKey: [`articles`],
+    queryFn: () =>
+      getArticlesByCategory({
+        category: "",
+        limit: 3,
+      }),
+    staleTime: 1000 * 60 * 5, // Cache for 5 minutes
+  });
 
-  useEffect(() => {
-    if (session) {
-      console.log("check token =>", session?.token.accessToken);
-      axios
-        .get("https://api.spotify.com/v1/playlists/5RGWJr22LfesEULQCmkfh9", {
-          headers: {
-            Authorization: `Bearer ${session?.token.accessToken}`,
-          },
-        })
-        .then((response) => {
-          console.log("response =>", response);
-          setPlaylists(response.data.tracks.items);
-        })
-        .catch((error) => {
-          console.error("Error fetching playlists:", error);
-        });
-    }
-  }, [session]);
   // console.log("data =>", session);
-  console.log("playlist =>", playlists);
   return (
     <>
       <div className="max-w-lg mx-auto relative h-full grid grid-cols-12 gap-[16px]">
@@ -118,9 +118,7 @@ export default function Home() {
           <div className="px-[30px] py-[30px] h-fit rounded-[16px] bg-white">
             <div className="">
               <div className="mb-[8px] flex items-center flex-wrap text-textColor">
-                <h3 className="font-semibold mb-[12px]">
-                  🛠️ Technologies & Tools
-                </h3>
+                <h3 className="font-semibold mb-[12px]">🛠️ Expertise</h3>
                 <div className="mt-[8px] ml-[6px] inline-flex flex-wrap items-center gap-x-[6px] gap-y-[8px]">
                   <TechBadge icon={"/icons/react-icon.png"} label="React" />
                   <TechBadge icon={"/icons/nextjs-icon.png"} label="Next.js" />
@@ -164,46 +162,63 @@ export default function Home() {
         <div className="col-span-7 flex flex-col gap-y-[16px] h-fit">
           <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Working energy</h3>
-            <div className="flex items-center gap-x-[8px]">
-              <input className="flex-1  h-[4px] bg-gray-300 rounded-md" />
-              <div>04:03</div>
-              <button>
-                <HiOutlineDotsHorizontal />
-              </button>
-              <button className="size-[32px] bg-black rounded-full flex items-center justify-center duration-300 hover:scale-[1.05]">
-                <FaPlay className="text-white text-[12px]" />
-              </button>
-              <button className="size-[32px] bg-black rounded-full flex items-center justify-center duration-300 hover:scale-[1.05]">
-                <FaPause className="text-white text-[12px]" />
-              </button>
+            <WorkingEnergy />
+          </div>
+          <div>
+            <h2 className="flex items-center mb-[12px]">
+              <Image
+                src="/assets/images/avatar-2.webp"
+                alt=""
+                width={400}
+                height={400}
+                className="border-[2px] size-[35px]  object-contain border-white rounded-full "
+              />
+              <span className="pl-[6px] font-semibold"> Tuananh Notebook</span>
+            </h2>
+            <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
+              <p>
+                💖 hello! this is where i post exclusive updates here. feel free
+                to look around (i do offer free stuff to here)
+              </p>
             </div>
-            <ul className="mt-[16px] flex flex-col">
-              {playlists &&
-                playlists.map((_, idx) => {
+          </div>
+          <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
+            <h3 className="font-semibold mb-[12px]">Feed</h3>
+            <ul className="flex flex-col gap-y-[30px]">
+              {posts &&
+                posts.map((post: IPost, idx: number) => {
                   return (
-                    <li
-                      key={idx}
-                      className={`${idx === 1 ? "bg-gray-100" : ""} py-[6px] px-[12px] rounded-[4px] hover:bg-gray-200 cursor-pointer duration-100`}
-                    >
-                      <p className="text-[14.5px] font-medium">
-                        {_.track.name}
-                      </p>
-                      <div>
-                        {_.track.artists.map((item, idxArtist) => {
-                          return (
-                            <span
-                              key={item.id}
-                              className="text-[13px] text-gray-500"
-                            >
-                              {item.name}
-                            </span>
-                          );
-                        })}
-                      </div>
+                    <li key={idx}>
+                      <h2 className="flex items-center mb-[12px]">
+                        <Image
+                          src="/assets/images/avatar-2.webp"
+                          alt=""
+                          width={400}
+                          height={400}
+                          className="border-[2px] size-[35px]  object-contain border-white rounded-full "
+                        />
+                        <span className="pl-[6px] font-semibold">
+                          {" "}
+                          Tuananh Notebook
+                        </span>
+                      </h2>
+
+                      <Link
+                        href={`/blog`}
+                        className="block border-[1px] border-[#d4cfcd] rounded-[8px] p-[12px]"
+                      >
+                        <h2 className="text-[18px] font-semibold">
+                          {post.title}
+                        </h2>
+                        <p className="pt-[8px]">{post?.sapo}</p>
+                      </Link>
                     </li>
                   );
                 })}
             </ul>
+            <button className="mt-8 block w-fit mx-auto">
+              <span className="font-semibold underline">Show all</span>
+            </button>
           </div>
         </div>
       </div>

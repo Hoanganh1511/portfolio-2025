@@ -27,7 +27,20 @@ const CarouselCard = () => {
   useEffect(() => {
     setCurrentSeries(s);
   }, [s]);
-  if (isLoading) return <p className="text-center">Loading...</p>;
+  if (isLoading)
+    return (
+      <div className="flex flex-col gap-y-[10px]">
+        {[1, 2, 3, 4, 5, 6].map((_) => {
+          return (
+            <div key={_} className="flex flex-col gap-y-[10px]">
+              <div className="w-full h-[35px] rounded-[8px] bg-gray-200 animate-pulse"></div>
+              <div className="w-[120px] h-[25px] rounded-[8px] bg-gray-200 animate-pulse"></div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  // <p className="text-center">Loading...</p>;
   if (!data || data.length === 0)
     return <p className="text-center">Danh mục này chưa có bài viết nào</p>;
 
@@ -35,7 +48,7 @@ const CarouselCard = () => {
     <div className="flex flex-col gap-y-[20px]">
       {data.map((item: IPost, idx: number) => {
         return (
-          <div key={idx} className="relative">
+          <div key={idx} className="relative ">
             <BlogCard data={item} />
           </div>
         );
