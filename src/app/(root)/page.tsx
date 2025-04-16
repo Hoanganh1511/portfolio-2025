@@ -203,42 +203,35 @@ export default function Home() {
               {dailyPosts && dailyPosts.length > 0 ? (
                 dailyPosts.map((post: IPost, idx: number) => {
                   return (
-                    <PostCard data={post} key={post._id} />
-                    // <li key={idx}>
-                    //   <h2 className="flex items-center mb-[12px]">
-                    //     <Image
-                    //       src="/assets/images/avatar-2.webp"
-                    //       alt=""
-                    //       width={400}
-                    //       height={400}
-                    //       className="border-[2px] size-[35px]  object-contain border-white rounded-full "
-                    //     />
-                    //     <span className="pl-[6px] font-semibold">
-                    //       {" "}
-                    //       Tuananh Notebook
-                    //     </span>
-                    //   </h2>
-
-                    //   <Link
-                    //     href={`/blog`}
-                    //     className="block border-[1px] border-[#d4cfcd] rounded-[18px] p-[16px]"
-                    //   >
-                    //     <h2 className="text-[18px] font-semibold">
-                    //       {post.title}
-                    //     </h2>
-                    //     {post.sapo && <p className="pt-[8px]">{post.sapo}</p>}
-                    //     {/* <p className="pt-[8px]">{post?.sapo}</p> */}
-                    //   </Link>
-                    // </li>
+                    <div key={post._id}>
+                      <h2 className="flex items-center mb-[12px]">
+                        <Image
+                          src="/assets/images/avatar-2.webp"
+                          alt=""
+                          width={400}
+                          height={400}
+                          className="border-[2px] size-[35px]  object-contain border-white rounded-full "
+                        />
+                        <span className="pl-[6px] font-semibold">
+                          {" "}
+                          Tuananh Notebook
+                        </span>
+                      </h2>
+                      <div className="block border-[1px] border-[#d4cfcd] rounded-[18px]">
+                        <PostCard data={post} />
+                      </div>
+                    </div>
                   );
                 })
               ) : (
                 <div className="text-center">Daily posts chưa cập nhật</div>
               )}
             </ul>
-            <Link href="/blog?s=daily" className="mt-8 block w-fit mx-auto">
-              <span className="font-semibold underline">Show all</span>
-            </Link>
+            {dailyPosts && dailyPosts.length > 0 && (
+              <Link href="/blog?s=daily" className="mt-8 block w-fit mx-auto">
+                <span className="font-semibold underline">Show all</span>
+              </Link>
+            )}
           </div>
           <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Blog</h3>
@@ -264,37 +257,18 @@ export default function Home() {
                         <PostCard data={post} />
                       </div>
                     </div>
-                    // <li key={idx}>
-                    //   <h2 className="flex items-center mb-[12px]">
-                    //     <Image
-                    //       src="/assets/images/avatar-2.webp"
-                    //       alt=""
-                    //       width={400}
-                    //       height={400}
-                    //       className="border-[2px] size-[35px]  object-contain border-white rounded-full "
-                    //     />
-                    //     <span className="pl-[6px] font-semibold">
-                    //       {" "}
-                    //       Tuananh Notebook
-                    //     </span>
-                    //   </h2>
-
-                    //   <Link
-                    //     href={`/blog`}
-                    //     className="block border-[1px] border-[#d4cfcd] rounded-[18px] p-[16px]"
-                    //   >
-                    //     <h2 className="text-[18px] font-semibold">
-                    //       {post.title}
-                    //     </h2>
-                    //     {post.sapo && <p className="pt-[8px]">{post.sapo}</p>}
-                    //   </Link>
-                    // </li>
                   );
                 })}
             </ul>
-            <Link href="/blog" className="mt-8 block w-fit mx-auto">
-              <span className="font-semibold underline">Show all</span>
-            </Link>
+            {posts && posts.length > 0 && (
+              <Link
+                href="/blog"
+                scroll={true}
+                className="mt-8 block w-fit mx-auto"
+              >
+                <span className="font-semibold underline">Show all</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>

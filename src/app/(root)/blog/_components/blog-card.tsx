@@ -18,7 +18,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { TiHeart } from "react-icons/ti";
-import DetailBlog from "./blog-detail";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,6 +31,7 @@ import {
 import { FaLink } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { urlFor } from "@/lib/sanity/image";
+import PostDetail from "@/components/sections/home/PostDetail";
 const BlogCard = ({ data }: { data: IPost }) => {
   const [openDetailModal, setOpenDetailModal] = useState(false);
   const [openShareOptions, setOpenShareOptions] = useState(false);
@@ -67,7 +67,7 @@ const BlogCard = ({ data }: { data: IPost }) => {
             )}
           </div>
           <DialogContent>
-            <DetailBlog data={data} />
+            <PostDetail data={data} />
           </DialogContent>
         </Dialog>
         <div className="mt-5 flex items-center">

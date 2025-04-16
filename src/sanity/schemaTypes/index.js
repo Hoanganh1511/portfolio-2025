@@ -4,6 +4,7 @@ import { postType } from "./postType";
 import { authorType } from "./authorType";
 import { seriesType } from "./seriesType";
 import { projectType } from "./projectType";
+import { dailyType } from "./dailyType";
 export const schema = {
   types: [
     blockContentType,
@@ -12,5 +13,6 @@ export const schema = {
     authorType,
     seriesType,
     projectType,
+    dailyType,
   ],
 };

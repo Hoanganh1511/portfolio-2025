@@ -84,7 +84,7 @@ const PostCard = ({ data }: { data: IPost }) => {
           </button>
           <Popover>
             <PopoverTrigger asChild>
-              <button onClick={handleOpenShareOptions} className="px-[12px]">
+              <button className="px-[12px]">
                 <PiShareFat />
               </button>
             </PopoverTrigger>
