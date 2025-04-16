@@ -1,6 +1,6 @@
 "use client";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 interface Series {
   _id: string;
   _type: "series";
@@ -24,8 +24,14 @@ interface Series {
 const MenuLeft = ({ series }: { series: Series[] }) => {
   const router = useRouter();
   const [isActive, setActive] = useState("");
+  const searchParams = useSearchParams();
+  const s = searchParams.get("s") ?? "";
+  useEffect(() => {
+    if (s) {
+      setActive(s);
+    }
+  }, [s]);
   const handleClick = (slug: string) => {
-    setActive(slug);
     if (slug) {
       router.push(`/blog?s=${slug}`);
     } else {
@@ -34,7 +40,7 @@ const MenuLeft = ({ series }: { series: Series[] }) => {
   };
   return (
     <div className="">
-      <ul className="flex flex-wrap gap-x-[10px]">
+      <ul className="flex flex-wrap gap-[10px]">
         <li
           key={0}
           onClick={() => handleClick("")}

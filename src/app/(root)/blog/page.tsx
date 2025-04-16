@@ -8,7 +8,7 @@ const BlogPage = async () => {
 
   const { series } = seriesRes;
   return (
-    <div className="max-w-lg w-full mx-auto  pb-[50px]">
+    <div className="max-w-[550px] w-full mx-auto  pb-[50px]">
       <div className="mt-[20px] flex flex-col gap-y-[20px]">
         <div className=" py-[15px] px-[30px] bg-white rounded-[18px]">
           <MenuLeft series={series || []} />

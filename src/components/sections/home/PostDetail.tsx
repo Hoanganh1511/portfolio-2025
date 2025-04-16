@@ -10,7 +10,7 @@ import { BsChat } from "react-icons/bs";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { PiShareFat } from "react-icons/pi";
 
-const DetailBlog = ({ data }: { data: IPost }) => {
+const PostDetail = ({ data }: { data: IPost }) => {
   // const { data: session, status } = useSession();
   console.log(111, data.body);
 
@@ -43,7 +43,9 @@ const DetailBlog = ({ data }: { data: IPost }) => {
           <button className="group py-[8px] px-[16px] bg-[#c0b6b380] hover:bg-[#c0b6b380] rounded-[8px]">
             <IoMdHeartEmpty className="group-hover:scale-[1.08] duration-200 will-change-transform" />
           </button>
-
+          {/* <button className="group py-[8px] px-[16px] bg-[#c0b6b380] hover:bg-[#c0b6b380] rounded-[8px]">
+            <BsChat className="group-hover:scale-[1.08] duration-200 will-change-transform" />
+          </button> */}
           <button className="group py-[8px] px-[16px] bg-[#b9b2b080] hover:bg-[#c0b6b380] rounded-[8px]">
             <PiShareFat className="group-hover:scale-[1.08] duration-200 will-change-transform" />
           </button>
@@ -55,4 +57,4 @@ const DetailBlog = ({ data }: { data: IPost }) => {
   );
 };
 
-export default DetailBlog;
+export default PostDetail;

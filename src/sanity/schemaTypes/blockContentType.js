@@ -1,4 +1,4 @@
-import { defineType, defineArrayMember } from "sanity";
+import { defineType, defineArrayMember, defineField } from "sanity";
 import { ImageIcon } from "@sanity/icons";
 
 /**
@@ -75,9 +75,11 @@ export const blockContentType = defineType({
         },
       ],
     }),
-    defineArrayMember({
+    defineField({
       type: "code",
+      // name: "myCodeField",
       name: "myCodeField",
+      title: "My code field",
     }),
   ],
 });

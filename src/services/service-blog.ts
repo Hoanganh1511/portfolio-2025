@@ -9,7 +9,7 @@ export const getArticlesByCategory = async (params: IParams) => {
   const querySanity = groq`*[_type=="post" ${params.category ? "&& $series match series->slug.current" : ""}] ${params.limit ? `[0...${params.limit}]` : ""}{
                ...,
                
-             } | order(_updatedAt desc)`;
+             } | order(_createdAt desc)`;
   return client.fetch(querySanity, { series: params.category });
 };
 

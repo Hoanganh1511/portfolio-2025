@@ -17,6 +17,9 @@ import SpotifyPlayer from "@/components/common/SpotifyPlayer";
 import WorkingEnergy from "@/components/sections/home/WorkingEnergy";
 import { IPost } from "@/types/service-api";
 import Tooltip from "@/components/common/Tooltip";
+import { PortableText } from "next-sanity";
+import RichTextComponent from "@/components/rich-text-component";
+import PostCard from "@/components/sections/home/PostCard";
 export default function Home() {
   const { data: session } = useSession();
   const [playlists, setPlaylists] = useState([]);
@@ -25,15 +28,27 @@ export default function Home() {
     isLoading: postsLoading,
     error: postsError,
   } = useQuery({
-    queryKey: [`articles`],
+    queryKey: [`tech-posts`],
     queryFn: () =>
       getArticlesByCategory({
         category: "",
+        limit: 5,
+      }),
+    staleTime: 1000 * 60, // Cache for 5 minutes
+  });
+  const {
+    data: dailyPosts,
+    isLoading: dailyPostsLoading,
+    error: dailyPostsError,
+  } = useQuery({
+    queryKey: [`daily-posts`],
+    queryFn: () =>
+      getArticlesByCategory({
+        category: "daily",
         limit: 3,
       }),
-    staleTime: 1000 * 60 * 5, // Cache for 5 minutes
+    staleTime: 1000 * 60, // Cache for 5 minutes
   });
-
   // console.log("data =>", session);
   return (
     <>
@@ -185,10 +200,53 @@ export default function Home() {
           <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Feed</h3>
             <ul className="flex flex-col gap-y-[30px]">
+              {dailyPosts && dailyPosts.length > 0 ? (
+                dailyPosts.map((post: IPost, idx: number) => {
+                  return (
+                    <PostCard data={post} key={post._id} />
+                    // <li key={idx}>
+                    //   <h2 className="flex items-center mb-[12px]">
+                    //     <Image
+                    //       src="/assets/images/avatar-2.webp"
+                    //       alt=""
+                    //       width={400}
+                    //       height={400}
+                    //       className="border-[2px] size-[35px]  object-contain border-white rounded-full "
+                    //     />
+                    //     <span className="pl-[6px] font-semibold">
+                    //       {" "}
+                    //       Tuananh Notebook
+                    //     </span>
+                    //   </h2>
+
+                    //   <Link
+                    //     href={`/blog`}
+                    //     className="block border-[1px] border-[#d4cfcd] rounded-[18px] p-[16px]"
+                    //   >
+                    //     <h2 className="text-[18px] font-semibold">
+                    //       {post.title}
+                    //     </h2>
+                    //     {post.sapo && <p className="pt-[8px]">{post.sapo}</p>}
+                    //     {/* <p className="pt-[8px]">{post?.sapo}</p> */}
+                    //   </Link>
+                    // </li>
+                  );
+                })
+              ) : (
+                <div className="text-center">Daily posts chưa cập nhật</div>
+              )}
+            </ul>
+            <Link href="/blog?s=daily" className="mt-8 block w-fit mx-auto">
+              <span className="font-semibold underline">Show all</span>
+            </Link>
+          </div>
+          <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
+            <h3 className="font-semibold mb-[12px]">Blog</h3>
+            <ul className="flex flex-col gap-y-[30px]">
               {posts &&
                 posts.map((post: IPost, idx: number) => {
                   return (
-                    <li key={idx}>
+                    <div key={post._id}>
                       <h2 className="flex items-center mb-[12px]">
                         <Image
                           src="/assets/images/avatar-2.webp"
@@ -202,23 +260,41 @@ export default function Home() {
                           Tuananh Notebook
                         </span>
                       </h2>
+                      <div className="block border-[1px] border-[#d4cfcd] rounded-[18px]">
+                        <PostCard data={post} />
+                      </div>
+                    </div>
+                    // <li key={idx}>
+                    //   <h2 className="flex items-center mb-[12px]">
+                    //     <Image
+                    //       src="/assets/images/avatar-2.webp"
+                    //       alt=""
+                    //       width={400}
+                    //       height={400}
+                    //       className="border-[2px] size-[35px]  object-contain border-white rounded-full "
+                    //     />
+                    //     <span className="pl-[6px] font-semibold">
+                    //       {" "}
+                    //       Tuananh Notebook
+                    //     </span>
+                    //   </h2>
 
-                      <Link
-                        href={`/blog`}
-                        className="block border-[1px] border-[#d4cfcd] rounded-[8px] p-[12px]"
-                      >
-                        <h2 className="text-[18px] font-semibold">
-                          {post.title}
-                        </h2>
-                        <p className="pt-[8px]">{post?.sapo}</p>
-                      </Link>
-                    </li>
+                    //   <Link
+                    //     href={`/blog`}
+                    //     className="block border-[1px] border-[#d4cfcd] rounded-[18px] p-[16px]"
+                    //   >
+                    //     <h2 className="text-[18px] font-semibold">
+                    //       {post.title}
+                    //     </h2>
+                    //     {post.sapo && <p className="pt-[8px]">{post.sapo}</p>}
+                    //   </Link>
+                    // </li>
                   );
                 })}
             </ul>
-            <button className="mt-8 block w-fit mx-auto">
+            <Link href="/blog" className="mt-8 block w-fit mx-auto">
               <span className="font-semibold underline">Show all</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

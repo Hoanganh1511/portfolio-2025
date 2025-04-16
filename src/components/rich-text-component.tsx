@@ -26,7 +26,8 @@ const RichTextComponent = {
     ),
     callToAction: ({ value, isInline }: any) =>
       isInline ? <a></a> : <div></div>,
-    code: ({ value }: any) => {
+    myCodeField: ({ value }: any) => {
+      console.log("code =>", value);
       return <SyntaxHighlighterField code={value.code} />;
     },
   },
@@ -61,12 +62,12 @@ const RichTextComponent = {
       <h3 className=" mb-2 text-[19px] text-[#333333] font-bold">{children}</h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className="my-[15px] pt-[5px] text-[18px] text-[#333333] font-semibold">
+      <h4 className="my-[15px] pt-[5px] text-[16.5px] text-[#333333] font-semibold">
         {children}
       </h4>
     ),
     h5: ({ children }: any) => (
-      <h5 className="my-[15px] pt-[5px] text-[16.5px] text-[#333333] font-semibold">
+      <h5 className="my-[15px] pt-[5px] text-[16px] text-[#333333] font-semibold">
         {children}
       </h5>
     ),

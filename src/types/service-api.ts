@@ -19,6 +19,7 @@ export interface Series {
 export interface IPost {
   _rev: string;
   _type: "post";
+  preview?: TypedObject;
   body: TypedObject; // Assuming an array of objects
   mainImage: any;
   _updatedAt: string;

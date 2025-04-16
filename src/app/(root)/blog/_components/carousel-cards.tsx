@@ -47,6 +47,7 @@ const CarouselCard = () => {
   return (
     <div className="flex flex-col gap-y-[20px]">
       {data.map((item: IPost, idx: number) => {
+        console.log(item);
         return (
           <div key={idx} className="relative ">
             <BlogCard data={item} />
