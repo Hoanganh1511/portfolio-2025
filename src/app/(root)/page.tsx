@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { useQuery } from "@tanstack/react-query";
-import { getArticlesByCategory } from "@/services/service-blog";
+import { getArticlesByCategory, getDailyPosts } from "@/services/service-blog";
 import { getAccessToken } from "@/lib/spotify";
 import SpotifyPlayer from "@/components/common/SpotifyPlayer";
 import WorkingEnergy from "@/components/sections/home/WorkingEnergy";
@@ -42,14 +42,14 @@ export default function Home() {
     error: dailyPostsError,
   } = useQuery({
     queryKey: [`daily-posts`],
-    queryFn: () =>
-      getArticlesByCategory({
-        category: "daily",
-        limit: 3,
-      }),
+    queryFn: () => getDailyPosts(),
     staleTime: 1000 * 60, // Cache for 5 minutes
   });
-  // console.log("data =>", session);
+  // {
+  //   category: "daily",
+  //   limit: 3,
+  // }
+  console.log("data =>", dailyPosts);
   return (
     <>
       <div className="max-w-lg mx-auto relative h-full grid grid-cols-12 gap-[16px]">
@@ -200,8 +200,8 @@ export default function Home() {
           <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Feed</h3>
             <ul className="flex flex-col gap-y-[30px]">
-              {dailyPosts && dailyPosts.length > 0 ? (
-                dailyPosts.map((post: IPost, idx: number) => {
+              {dailyPosts && dailyPosts.data.length > 0 ? (
+                dailyPosts.data.map((post: IPost, idx: number) => {
                   return (
                     <div key={post._id}>
                       <h2 className="flex items-center mb-[12px]">
@@ -227,7 +227,7 @@ export default function Home() {
                 <div className="text-center">Daily posts chưa cập nhật</div>
               )}
             </ul>
-            {dailyPosts && dailyPosts.length > 0 && (
+            {dailyPosts && dailyPosts.data.length > 0 && (
               <Link href="/blog?s=daily" className="mt-8 block w-fit mx-auto">
                 <span className="font-semibold underline">Show all</span>
               </Link>
