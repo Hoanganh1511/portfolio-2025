@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { TiHeart } from "react-icons/ti";
+import { FaThreads } from "react-icons/fa6";
 import { FaFacebookF, FaPause, FaPlay } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
-import { usePathname } from "next/navigation";
 import ShowMore from "@/components/common/ShowMore";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -112,6 +111,14 @@ export default function Home() {
                 >
                   <Tooltip tooltipText="hoanganh.ui">
                     <FaInstagram className=" size-[20px] text-gray-500" />
+                  </Tooltip>
+                </Link>
+                <Link
+                  href="https://www.threads.com/@hoanganh.ui"
+                  target="_blank"
+                >
+                  <Tooltip tooltipText="hoanganh.ui">
+                    <FaThreads className=" size-[20px] text-gray-500" />
                   </Tooltip>
                 </Link>
               </ul>

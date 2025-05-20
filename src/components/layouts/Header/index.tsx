@@ -49,7 +49,7 @@ const Header = () => {
   }
   return (
     <div className=" bg-white rounded-b-[18px]">
-      <div className="max-w-lg mx-auto  py-[12px] flex justify-between">
+      <div className="max-w-lg mx-auto px-[15px] py-[12px] flex justify-between">
         <Link
           href="/"
           className="relative flex items-center font-semibold text-[22px] text-[#192025]"
@@ -63,12 +63,12 @@ const Header = () => {
           />
           TuanAnh Notebook
         </Link>
-        <button
+        {/* <button
           onClick={() => signIn()}
           className="shadow-primary  rounded-xl bg-white border-0 text-black text-[18px] active:scale-[0.99]"
         >
           Sign In FB Dev
-        </button>
+        </button> */}
         {/* <ul className="flex items-center gap-x-[20px]">
           {navsConfig.map((nav) => {
             const isActive = pathname === nav.href;

@@ -19,8 +19,8 @@ const PhotosPage = () => {
   });
   console.log("tech use", data);
   return (
-    <div className="max-w-md mx-auto px-[30px] pb-[50px] mt-[20px]">
-      <div className="relative h-[320px] w-screen left-1/2 -translate-x-1/2 bg-black/90 rounded-[18px] flex justify-center overflow-hidden">
+    <div className="max-w-md mx-auto px-[30px] pb-[50px] mt-[30px] md:mt-[20px]">
+      <div className="relative h-[320px] w-screen left-1/2 -translate-x-1/2 bg-black/90 md:rounded-[18px] flex justify-center overflow-hidden">
         <Image
           src="/assets/images/uses/workspace_1.jpg"
           width={1980}
@@ -30,7 +30,7 @@ const PhotosPage = () => {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-white/70 flex flex-col items-center justify-center">
           <span className="block w-fit mx-auto font-mono">WELCOME TO</span>
-          <h1 className="mx-auto w-fit text-[32px] font-semibold">
+          <h1 className="mx-auto w-fit text-[20px] md:text-[32px] font-semibold">
             A curated list of the tech I{" "}
             <span className="text-[#E9762B]">use</span>
           </h1>

@@ -22,17 +22,17 @@ const Navigation = () => {
         </div>
         <div className="relative flex  justify-between -translate-y-[8px]">
           <div className="flex items-center">
-            <div className="mr-[12px] size-[115px] rounded-full border-[2px] border-white">
+            <div className="mr-[12px] size-[100px] md:size-[115px] rounded-full border-[2px] border-white">
               <Image
                 src="/assets/images/avatar-2.webp"
                 alt=""
                 width={400}
                 height={400}
-                className="border-[2px] size-[115px]  object-contain border-white rounded-full "
+                className="border-[2px] size-[100px] md:size-[115px]  object-contain border-white rounded-full "
               />
             </div>
             <div>
-              <h2 className="text-[24px] font-semibold font-inter text-textColor-origin">
+              <h2 className=" text-[20px] md:text-[24px] font-semibold font-inter text-textColor-origin">
                 Tuananh Notebook
               </h2>
               <div className="flex items-center">

@@ -17,9 +17,10 @@ const ProjectsPage = async () => {
       <div className="pt-[40px]">
         <h1 className="mx-auto w-fit text-[32px] font-semibold">Works</h1>
         <div className="mt-[30px]">
-          <Suspense fallback={<div>Loading..</div>}>
+          <ListProject data={data.projects} />
+          {/* <Suspense fallback={<div>Loading..</div>}>
             <ListProject data={data.projects} />
-          </Suspense>
+          </Suspense> */}
         </div>
       </div>
     </div>
