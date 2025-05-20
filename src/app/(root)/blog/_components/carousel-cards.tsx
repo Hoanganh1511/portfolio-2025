@@ -24,6 +24,7 @@ const CarouselCard = () => {
       }),
     staleTime: 1000 * 60 * 5, // Cache for 5 minutes
   });
+  console.log(111, currentSeries);
   useEffect(() => {
     setCurrentSeries(s);
   }, [s]);
