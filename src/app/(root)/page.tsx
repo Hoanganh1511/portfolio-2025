@@ -52,9 +52,9 @@ export default function Home() {
   // console.log("data =>", session);
   return (
     <>
-      <div className="max-w-lg mx-auto relative h-full grid grid-cols-12 gap-[16px]">
-        <div className="col-span-5 flex flex-col gap-y-[16px] h-fit sticky top-0">
-          <div className="px-[30px] py-[30px] h-fit rounded-[16px] bg-white">
+      <div className="max-w-lg px-[15px] mx-auto relative h-full grid grid-cols-12 gap-[16px]">
+        <div className="col-span-12 md:col-span-5 flex flex-col gap-y-[16px] h-fit md:sticky top-0">
+          <div className="px-[24px] py-[24px] h-fit rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">About</h3>
             <p className="block mb-[20px] text-textColor">
               heya! It&apos;s me , Tuananh Notebook - a{" "}
@@ -117,7 +117,7 @@ export default function Home() {
               </ul>
             </div>
             <div className="mb-[12px] flex items-center flex-wrap gap-x-[8px]">
-              {["Web Development", "Photography"].map((_, idx) => {
+              {["Web Development", "Writing", "Photography"].map((_, idx) => {
                 return (
                   <div
                     key={idx}
@@ -130,7 +130,7 @@ export default function Home() {
             </div>
           </div>
           {/* 2 */}
-          <div className="px-[30px] py-[30px] h-fit rounded-[16px] bg-white">
+          <div className="px-[24px] py-[24px] h-fit rounded-[16px] bg-white">
             <div className="">
               <div className="mb-[8px] flex items-center flex-wrap text-textColor">
                 <h3 className="font-semibold mb-[12px]">🛠️ Expertise</h3>
@@ -165,7 +165,7 @@ export default function Home() {
             </div>
           </div>
           {/* Gallery */}
-          <div className="px-[30px] py-[30px] h-fit rounded-[16px] bg-white">
+          <div className="px-[24px] py-[24px] h-fit rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Gallery</h3>
           </div>
 
@@ -174,8 +174,8 @@ export default function Home() {
             <span className="font-dm_mono">anhht.fe@gmail.com</span>
           </p> */}
         </div>
-        <div className="col-span-7 flex flex-col gap-y-[16px] h-fit">
-          <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
+        <div className="col-span-12 md:col-span-7 flex flex-col gap-y-[16px] h-fit">
+          <div className="px-[24px] py-[24px]  rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Working energy</h3>
             <WorkingEnergy />
           </div>
@@ -190,16 +190,16 @@ export default function Home() {
               />
               <span className="pl-[6px] font-semibold"> Tuananh Notebook</span>
             </h2>
-            <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
+            <div className="px-[24px] py-[24px]  rounded-[16px] bg-white">
               <p>
                 💖 hello! this is where i post exclusive updates here. feel free
                 to look around (i do offer free stuff to here)
               </p>
             </div>
           </div>
-          <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
+          <div className="px-[24px] py-[24px]  rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Feed</h3>
-            <ul className="flex flex-col gap-y-[30px]">
+            <ul className="flex flex-col gap-y-[24px]">
               {dailyPosts && dailyPosts.length > 0 ? (
                 dailyPosts.map((post: IPost, idx: number) => {
                   return (
@@ -233,9 +233,9 @@ export default function Home() {
               </Link>
             )}
           </div>
-          <div className="px-[30px] py-[30px]  rounded-[16px] bg-white">
+          <div className="px-[24px] py-[24px]  rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Blog</h3>
-            <ul className="flex flex-col gap-y-[30px]">
+            <ul className="flex flex-col gap-y-[24px]">
               {posts &&
                 posts.map((post: IPost, idx: number) => {
                   return (

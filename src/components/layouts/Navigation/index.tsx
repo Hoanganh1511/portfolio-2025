@@ -11,7 +11,7 @@ const Navigation = () => {
   const pathname = usePathname();
   return (
     <div className="bg-white mb-[16px]">
-      <div className="max-w-lg mx-auto pb-[8px]">
+      <div className="max-w-lg mx-auto px-[15px] pb-[8px]">
         <div className="relative w-full aspect-[3/1] overflow-hidden rounded-[12px]">
           <Image
             src="/assets/images/cover.webp"
@@ -20,7 +20,7 @@ const Navigation = () => {
             className="object-cover"
           />
         </div>
-        <div className="relative flex justify-between -translate-y-[8px]">
+        <div className="relative flex  justify-between -translate-y-[8px]">
           <div className="flex items-center">
             <div className="mr-[12px] size-[115px] rounded-full border-[2px] border-white">
               <Image
@@ -41,10 +41,10 @@ const Navigation = () => {
               </div>
             </div>
           </div>
-          <div className=" flex items-center">
+          <div className="hidden sm:flex items-center">
             <div className=" flex items-center">
-              <p>Follow me on:</p>
-              <ul className="pl-[12px] flex items-center gap-x-[8px]">
+              <p className="hidden md:block">Follow me on:</p>
+              <ul className="pl-[12px] flex items-center gap-x-[10px]">
                 <Link href="https://www.facebook.com/jm.1511/" target="_blank">
                   <Tooltip tooltipText="jm.1511">
                     <FaFacebookF className=" size-[20px] text-gray-500" />
@@ -63,7 +63,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-lg mx-auto ">
+      <div className="max-w-lg px-[15px] mx-auto ">
         <div className="flex items-center">
           {navsConfig.map((item, idx) => {
             const isActive = pathname === item.href;
