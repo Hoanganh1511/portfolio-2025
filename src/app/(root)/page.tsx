@@ -101,11 +101,11 @@ export default function Home() {
                 Find me on
               </p>
               <ul className="pl-[12px] flex items-center gap-x-[8px]">
-                <Link href="https://www.facebook.com/jm.1511/" target="_blank">
+                {/* <Link href="https://www.facebook.com/jm.1511/" target="_blank">
                   <Tooltip tooltipText="jm.1511">
                     <FaFacebookF className=" size-[20px] text-gray-500" />
                   </Tooltip>
-                </Link>
+                </Link> */}
                 <Link
                   href="https://www.instagram.com/hoanganh.ui/"
                   target="_blank"
