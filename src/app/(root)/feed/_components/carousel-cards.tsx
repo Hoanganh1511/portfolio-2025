@@ -15,15 +15,7 @@ const CarouselCard = () => {
   const searchParams = useSearchParams();
   const s = searchParams.get("s") ?? "";
   const [currentSeries, setCurrentSeries] = useState("");
-  const { data, isLoading, error } = useQuery({
-    queryKey: [`articles-${currentSeries}`],
-    queryFn: () =>
-      getArticlesByCategory({
-        category: currentSeries,
-        limit: 10,
-      }),
-    staleTime: 1000 * 60 * 5, // Cache for 5 minutes
-  });
+
   const {
     data: dailyPosts,
     isLoading: dailyPostsLoading,
@@ -36,7 +28,7 @@ const CarouselCard = () => {
   useEffect(() => {
     setCurrentSeries(s);
   }, [s]);
-  if (isLoading)
+  if (dailyPostsLoading)
     return (
       <div className="flex flex-col gap-y-[10px]">
         {[1, 2, 3, 4, 5, 6].map((_) => {
@@ -50,12 +42,12 @@ const CarouselCard = () => {
       </div>
     );
   // <p className="text-center">Loading...</p>;
-  if (!data || data.length === 0)
+  if (!dailyPosts || dailyPosts.data?.length === 0)
     return <p className="text-center">Danh mục này chưa có bài viết nào</p>;
 
   return (
     <div className="flex flex-col gap-y-[20px]">
-      {data.map((item: IPost, idx: number) => {
+      {dailyPosts.data?.map((item: IPost, idx: number) => {
         console.log(item);
         return (
           <div key={idx} className="relative ">

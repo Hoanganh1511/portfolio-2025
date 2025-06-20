@@ -15,11 +15,16 @@ export const navsConfig = [
   },
   {
     id: 3,
+    text: "Feed",
+    href: "/feed",
+  },
+  {
+    id: 4,
     text: "Projects",
     href: "/projects",
   },
   {
-    id: 4,
+    id: 5,
     text: "What I Uses",
     href: "/photos",
   },

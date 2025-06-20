@@ -18,7 +18,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { TiHeart } from "react-icons/ti";
-import PostDetail from "./PostDetail";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,7 +31,8 @@ import {
 import { FaLink } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { urlFor } from "@/lib/sanity/image";
-const PostCard = ({ data }: { data: IPost }) => {
+import PostDetail from "@/components/sections/home/PostDetail";
+const BlogCard = ({ data }: { data: IPost }) => {
   const [openDetailModal, setOpenDetailModal] = useState(false);
   const [openShareOptions, setOpenShareOptions] = useState(false);
   const handleOpenShareOptions = () => {
@@ -46,18 +46,13 @@ const PostCard = ({ data }: { data: IPost }) => {
             onClick={() => setOpenDetailModal(true)}
             className="w-full flex flex-col items-start cursor-pointer"
           >
-            {/* <p className="mb-[12px] text-[13.5px] font-inter text-textColor  opacity-70 line-clamp-3">
+            <p className="mb-[12px] text-[13.5px] font-inter text-textColor  opacity-70 line-clamp-3">
               {formatDate(data._updatedAt)}
-            </p> */}
-            <h3 className="mt-[4px] mb-[4px] group-hover:opacity-[0.85] duration-100 lowercase  text-[18px] font-semibold flex-1">
+            </p>
+            <h3 className="mb-[8px] group-hover:opacity-[0.85] duration-100 lowercase  text-[18px] font-semibold flex-1">
               {data.title}
             </h3>
-            {/* {data.sapo && (
-              <p className="pt-[8px] text-[#192025]">{data.sapo}</p>
-            )} */}
-            {data.body && (
-              <PortableText value={data.body} components={RichTextComponent} />
-            )}
+            {data.sapo && <p className="pt-[8px]">{data.sapo}</p>}
             {data.mainImage && (
               <div className="mt-[12px] relative w-[calc(100%+40px)] -mx-[20px] aspect-[550/360]">
                 <Image
@@ -87,7 +82,7 @@ const PostCard = ({ data }: { data: IPost }) => {
           </button>
           <Popover>
             <PopoverTrigger asChild>
-              <button className="px-[12px]">
+              <button onClick={handleOpenShareOptions} className="px-[12px]">
                 <PiShareFat />
               </button>
             </PopoverTrigger>
@@ -112,4 +107,4 @@ const PostCard = ({ data }: { data: IPost }) => {
   );
 };
 
-export default PostCard;
+export default BlogCard;

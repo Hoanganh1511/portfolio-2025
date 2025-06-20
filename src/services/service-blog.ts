@@ -21,6 +21,7 @@ export const getDailyPosts = async () => {
     data: data,
   };
 };
+
 export const getArticlesByCategory = async (params: IParams) => {
   const querySanity = groq`*[_type=="post" ${params.category ? "&& $series match series->slug.current" : ""}] ${params.limit ? `[0...${params.limit}]` : ""}{
                ...,

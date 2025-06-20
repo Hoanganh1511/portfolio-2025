@@ -1,15 +1,27 @@
 "use client";
 import SpotifyPlayer from "@/components/common/SpotifyPlayer";
 import axios from "axios";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 
 const WorkingEnergy = () => {
   const { data: session } = useSession();
-  const [currentTrackId, setCurrentTrackId] = useState("");
+  const [currentTrackId, setCurrentTrackId] = useState("4");
   const [playlists, setPlaylists] = useState([]);
+  // const signInSpotify = async () => {
+  //   if (!session) {
+  //     await signIn("credentials", {
+  //       email: "anhht.fe@gmail.com",
+  //       password: "Jimin1511",
+  //     });
+  //   }
+  // };
+  // useEffect(() => {
+  //   signInSpotify();
+  // }, []);
   useEffect(() => {
     if (session) {
+      console.log("session =>", session);
       // console.log("check token =>", session?.token.accessToken);
       // axios
       //   .get("https://api.spotify.com/v1/me/playlists", {
@@ -25,9 +37,9 @@ const WorkingEnergy = () => {
       //   });
       axios
         .get("https://api.spotify.com/v1/playlists/5RGWJr22LfesEULQCmkfh9", {
-          headers: {
-            Authorization: `Bearer ${session?.accessToken}`,
-          },
+          // headers: {
+          //   Authorization: `Bearer ${session?.accessToken}`,
+          // },
         })
         .then((response) => {
           setPlaylists(response.data.tracks.items);

@@ -12,8 +12,13 @@ const SpotifyPlayer: React.FC<SpotifyPlayerProps> = ({ trackId }) => {
         className="w-full"
         link="https://open.spotify.com/playlist/5RGWJr22LfesEULQCmkfh9?si=mTiITmlHQpaGkoivGTv8Jw"
       />
+    </div>
+  );
+};
 
-      {/* <iframe
+export default SpotifyPlayer;
+{
+  /* <iframe
         src={`https://open.spotify.com/embed/track/${trackId}`}
         width="100%"
         height="80"
@@ -21,9 +26,5 @@ const SpotifyPlayer: React.FC<SpotifyPlayerProps> = ({ trackId }) => {
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
         allowTransparency
-      ></iframe> */}
-    </div>
-  );
-};
-
-export default SpotifyPlayer;
+      ></iframe> */
+}
