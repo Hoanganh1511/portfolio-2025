@@ -10,7 +10,6 @@ const BlogPage = async () => {
   return (
     <div className="max-w-[550px] w-full mx-auto px-[15px] pb-[50px]">
       <div className="mt-[20px] flex flex-col gap-y-[20px]">
-        <div className=" py-[15px] px-[24px] bg-white rounded-[18px]"></div>
         <div className="flex-1  gap-y-[30px] ">
           <CarouselCard />
         </div>

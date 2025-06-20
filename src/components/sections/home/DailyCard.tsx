@@ -32,7 +32,7 @@ import {
 import { FaLink } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { urlFor } from "@/lib/sanity/image";
-const PostCard = ({ data }: { data: IPost }) => {
+const DailyCard = ({ data }: { data: IPost }) => {
   const [openDetailModal, setOpenDetailModal] = useState(false);
   const [openShareOptions, setOpenShareOptions] = useState(false);
   const handleOpenShareOptions = () => {
@@ -52,12 +52,12 @@ const PostCard = ({ data }: { data: IPost }) => {
             <h3 className="mt-[4px] mb-[4px] group-hover:opacity-[0.85] duration-100 lowercase  text-[18px] font-semibold flex-1">
               {data.title}
             </h3>
-            {data.sapo && (
+            {/* {data.sapo && (
               <p className="pt-[8px] text-[#192025]">{data.sapo}</p>
-            )}
-            {/* {data.body && (
-              <PortableText value={data.body} components={RichTextComponent} />
             )} */}
+            {data.body && (
+              <PortableText value={data.body} components={RichTextComponent} />
+            )}
             {data.mainImage && (
               <div className="mt-[12px] relative w-[calc(100%+40px)] -mx-[20px] aspect-[550/360]">
                 <Image
@@ -112,4 +112,4 @@ const PostCard = ({ data }: { data: IPost }) => {
   );
 };
 
-export default PostCard;
+export default DailyCard;

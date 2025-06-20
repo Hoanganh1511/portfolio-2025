@@ -19,6 +19,7 @@ import Tooltip from "@/components/common/Tooltip";
 import { PortableText } from "next-sanity";
 import RichTextComponent from "@/components/rich-text-component";
 import PostCard from "@/components/sections/home/PostCard";
+import DailyCard from "@/components/sections/home/DailyCard";
 export default function Home() {
   const { data: session } = useSession();
   const [playlists, setPlaylists] = useState([]);
@@ -144,6 +145,7 @@ export default function Home() {
                 <div className="mt-[8px] ml-[6px] inline-flex flex-wrap items-center gap-x-[6px] gap-y-[8px]">
                   <TechBadge icon={"/icons/react-icon.png"} label="React" />
                   <TechBadge icon={"/icons/nextjs-icon.png"} label="Next.js" />
+                  <TechBadge icon={"/icons/aws.png"} label="AWS" />
                   <TechBadge icon={"/icons/vite-icon.png"} label="Vite" />
                   <TechBadge icon={"/icons/zustand.webp"} label="Zustand" />
                   <TechBadge icon={"/icons/redux.webp"} label="Redux" />
@@ -225,7 +227,7 @@ export default function Home() {
                         </span>
                       </h2>
                       <div className="block border-[1px] border-[#d4cfcd] rounded-[18px]">
-                        <PostCard data={post} />
+                        <DailyCard data={post} />
                       </div>
                     </div>
                   );
@@ -235,7 +237,7 @@ export default function Home() {
               )}
             </ul>
             {dailyPosts && dailyPosts.data.length > 0 && (
-              <Link href="/blog?s=daily" className="mt-8 block w-fit mx-auto">
+              <Link href="/feed" className="mt-8 block w-fit mx-auto">
                 <span className="font-semibold underline">Show all</span>
               </Link>
             )}

@@ -7,7 +7,7 @@ const SyntaxHighlighterField = ({ code }: { code: any }) => {
   return (
     <SyntaxHighlighter
       language="jsx"
-      className="text-[15px] !p-[18px] [&>code]:!leading-[24px]"
+      className="text-[15px] !p-[18px] [&>code]:!leading-[24px] "
       style={oneDark}
     >
       {code}

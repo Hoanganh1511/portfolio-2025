@@ -7,6 +7,7 @@ import "swiper/css";
 import { IPost } from "@/types/service-api";
 import { getArticlesByCategory, getDailyPosts } from "@/services/service-blog";
 import { useSearchParams } from "next/navigation";
+import DailyCard from "@/components/sections/home/DailyCard";
 // const data = await getArticlesByCategory({
 //   category: "optimize-performance",
 //   limit: 4,
@@ -51,7 +52,7 @@ const CarouselCard = () => {
         console.log(item);
         return (
           <div key={idx} className="relative ">
-            <BlogCard data={item} />
+            <DailyCard data={item} />
           </div>
         );
       })}
