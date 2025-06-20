@@ -45,11 +45,11 @@ const Navigation = () => {
             <div className=" flex items-center">
               <p className="hidden md:block">Follow me on:</p>
               <ul className="pl-[12px] flex items-center gap-x-[10px]">
-                <Link href="https://www.facebook.com/jm.1511/" target="_blank">
+                {/* <Link href="https://www.facebook.com/jm.1511/" target="_blank">
                   <Tooltip tooltipText="jm.1511">
                     <FaFacebookF className=" size-[20px] text-gray-500" />
                   </Tooltip>
-                </Link>
+                </Link> */}
                 <Link
                   href="https://www.instagram.com/hoanganh.ui/"
                   target="_blank"
