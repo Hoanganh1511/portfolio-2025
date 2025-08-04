@@ -40,7 +40,7 @@ const PostCard = ({ data }: { data: IPost }) => {
   };
   return (
     <>
-      <div className="group block bg-white hover:bg-gray-50 duration-100 p-[20px] h-full pt-0 gap-x-[20px] rounded-[12px] overflow-hidden">
+      <div className="group block bg-white hover:bg-gray-50 duration-200 p-[20px] h-full pt-0 gap-x-[20px] rounded-[12px] shadow-md hover:shadow-xl overflow-hidden">
         <Dialog open={openDetailModal} onOpenChange={setOpenDetailModal}>
           <div
             onClick={() => setOpenDetailModal(true)}
