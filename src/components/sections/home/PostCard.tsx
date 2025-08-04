@@ -40,36 +40,34 @@ const PostCard = ({ data }: { data: IPost }) => {
   };
   return (
     <>
-      <div className="group block bg-white p-[20px]  gap-x-[20px] rounded-[18px]">
+      <div className="group block bg-white hover:bg-gray-50 duration-100 p-[20px] h-full pt-0 gap-x-[20px] rounded-[12px] overflow-hidden">
         <Dialog open={openDetailModal} onOpenChange={setOpenDetailModal}>
           <div
             onClick={() => setOpenDetailModal(true)}
             className="w-full flex flex-col items-start cursor-pointer"
           >
-            {/* <p className="mb-[12px] text-[13.5px] font-inter text-textColor  opacity-70 line-clamp-3">
-              {formatDate(data._updatedAt)}
-            </p> */}
-            <h3 className="mt-[4px] mb-[4px] group-hover:opacity-[0.85] duration-100 lowercase  text-[18px] font-semibold flex-1">
-              {data.title}
-            </h3>
-            {data.sapo && (
-              <p className="pt-[8px] text-[#192025]">{data.sapo}</p>
-            )}
-            {/* {data.body && (
-              <PortableText value={data.body} components={RichTextComponent} />
-            )} */}
-            {data.mainImage && (
-              <div className="mt-[12px] relative w-[calc(100%+40px)] -mx-[20px] aspect-[550/360]">
+            {/* {data.mainImage && (
+              <div className="relative w-[calc(100%+40px)] -mx-[20px] aspect-[550/360]">
                 <Image
                   src={urlFor(data.mainImage).url()}
-                  // src="/default-blog-image.jpg"
                   fill
                   quality={100}
                   alt=""
                   className="object-contain"
                 />
               </div>
+            )} */}
+            <h3 className="group-hover:underline mt-[16px] mb-[4px] group-hover:opacity-[0.85] duration-100   text-[18px] font-semibold flex-1">
+              {data.title}
+            </h3>
+            {data.sapo && (
+              <p className="pt-[8px] text-[#192025] line-clamp-4">
+                {data.sapo}
+              </p>
             )}
+            <p className="my-[12px] text-[13.5px] font-inter text-textColor  opacity-70 line-clamp-3">
+              {formatDate(data._updatedAt)}
+            </p>
           </div>
           <DialogContent>
             <PostDetail data={data} />

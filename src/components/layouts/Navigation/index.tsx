@@ -11,7 +11,7 @@ const Navigation = () => {
   const pathname = usePathname();
   return (
     <div className="bg-white mb-[16px]">
-      <div className="max-w-lg mx-auto px-[15px] pb-[8px]">
+      <div className="max-w-xl mx-auto px-[15px] pb-[8px]">
         <div className="relative w-full aspect-[3/1] overflow-hidden rounded-[12px]">
           <Image
             src="/assets/images/cover.webp"
@@ -63,7 +63,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-lg px-[15px] mx-auto ">
+      <div className="max-w-xl px-[15px] mx-auto ">
         <div className="flex items-center">
           {navsConfig.map((item, idx) => {
             const isActive = pathname === item.href;

@@ -49,7 +49,7 @@ const Header = () => {
   }
   return (
     <div className=" bg-white rounded-b-[18px]">
-      <div className="max-w-lg mx-auto px-[15px] py-[12px] flex justify-between">
+      <div className="max-w-xl mx-auto px-[15px] py-[12px] flex justify-between">
         <Link
           href="/"
           className="relative flex items-center font-semibold text-[22px] text-[#192025]"

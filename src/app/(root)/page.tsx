@@ -9,6 +9,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { FaWifi } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import { getArticlesByCategory, getDailyPosts } from "@/services/service-blog";
 import { getAccessToken } from "@/lib/spotify";
@@ -32,7 +33,7 @@ export default function Home() {
     queryFn: () =>
       getArticlesByCategory({
         category: "",
-        limit: 5,
+        limit: 15,
       }),
     staleTime: 1000 * 60, // Cache for 5 minutes
   });
@@ -52,8 +53,8 @@ export default function Home() {
   console.log("data =>", dailyPosts);
   return (
     <>
-      <div className="max-w-lg px-[15px] mx-auto relative h-full grid grid-cols-12 gap-[16px]">
-        <div className="col-span-12 md:col-span-5 flex flex-col gap-y-[16px] h-fit md:sticky top-0">
+      <div className="max-w-xl px-[15px] mx-auto relative h-full grid grid-cols-12 gap-[16px]">
+        <div className="col-span-12  flex flex-col gap-y-[16px] h-fit  top-0">
           <div className="px-[24px] py-[24px] h-fit rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">About</h3>
             <p className="block mb-[20px] text-textColor">
@@ -173,17 +174,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* Gallery */}
-          <div className="px-[24px] py-[24px] h-fit rounded-[16px] bg-white">
-            <h3 className="font-semibold mb-[12px]">Gallery</h3>
-          </div>
 
           {/* <p className="my-[20px] leading-[1.8rem] text-textColor">
             Or email me at{" "}
             <span className="font-dm_mono">anhht.fe@gmail.com</span>
           </p> */}
         </div>
-        <div className="col-span-12 md:col-span-7 flex flex-col gap-y-[16px] h-fit">
+        {/* <div className="col-span-4 flex flex-col gap-y-[16px] h-fit">
           <div className="px-[24px] py-[24px]  rounded-[16px] bg-white">
             <h3 className="font-semibold mb-[12px]">Working energy</h3>
             <WorkingEnergy />
@@ -242,13 +239,18 @@ export default function Home() {
               </Link>
             )}
           </div>
+        </div> */}
+        <div className="col-span-12 flex flex-col gap-y-[16px]">
           <div className="px-[24px] py-[24px]  rounded-[16px] bg-white">
-            <h3 className="font-semibold mb-[12px]">Blog</h3>
-            <ul className="flex flex-col gap-y-[24px]">
+            <h3 className="font-bold text-[22px] text-black/90 mb-[12px]">
+              Web Developer Blog{" "}
+              <FaWifi className="rotate-[45deg] text-primary inline-block" />
+            </h3>
+            <ul className="grid grid-cols-12 gap-x-[16px] gap-y-[24px]">
               {posts &&
                 posts.map((post: IPost, idx: number) => {
                   return (
-                    <div key={post._id}>
+                    <div key={post._id} className="col-span-4 flex flex-col">
                       <h2 className="flex items-center mb-[12px]">
                         <Image
                           src="/assets/images/avatar-2.webp"
@@ -262,7 +264,7 @@ export default function Home() {
                           Tuananh Notebook
                         </span>
                       </h2>
-                      <div className="block border-[1px] border-[#d4cfcd] rounded-[18px]">
+                      <div className="block border-[1px] border-[#d4cfcd] rounded-[12px] flex-1">
                         <PostCard data={post} />
                       </div>
                     </div>

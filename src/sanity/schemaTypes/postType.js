@@ -33,6 +33,15 @@ export const postType = defineType({
       title: "Sapo",
     }),
     defineField({
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        layout: "tags",
+      },
+    }),
+    defineField({
       name: "author",
       title: "Author",
       type: "reference",
