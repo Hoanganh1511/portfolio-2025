@@ -40,7 +40,7 @@ const PostCard = ({ data }: { data: IPost }) => {
   };
   return (
     <>
-      <div className="group block bg-white hover:bg-gray-50 duration-200 p-[20px] h-full pt-0 gap-x-[20px] rounded-[12px] shadow-md hover:shadow-xl overflow-hidden">
+      <div className="group block bg-white hover:bg-gray-50 duration-200 p-[20px] h-full pt-0 gap-x-[20px] rounded-[6px] sm:rounded-[12px] shadow-md hover:shadow-xl overflow-hidden">
         <Dialog open={openDetailModal} onOpenChange={setOpenDetailModal}>
           <div
             onClick={() => setOpenDetailModal(true)}
@@ -57,11 +57,11 @@ const PostCard = ({ data }: { data: IPost }) => {
                 />
               </div>
             )} */}
-            <h3 className="group-hover:underline mt-[16px] mb-[4px] group-hover:opacity-[0.85] duration-100   text-[18px] font-semibold flex-1">
+            <h3 className="group-hover:underline mt-[16px] mb-[4px] group-hover:opacity-[0.85] duration-100  text-[16px] sm:text-[18px] font-semibold flex-1">
               {data.title}
             </h3>
             {data.sapo && (
-              <p className="pt-[8px] text-[#192025] line-clamp-4">
+              <p className="pt-[8px] text-[#192025] line-clamp-4 text-[13.5px] sm:text-[16px]">
                 {data.sapo}
               </p>
             )}
@@ -73,7 +73,7 @@ const PostCard = ({ data }: { data: IPost }) => {
             <PostDetail data={data} />
           </DialogContent>
         </Dialog>
-        <div className="mt-5 flex items-center">
+        <div className="mt-5 hidden sm:flex items-center">
           <button className="px-[12px]">
             <FaRegHeart />
           </button>

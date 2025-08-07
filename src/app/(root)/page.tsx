@@ -246,7 +246,7 @@ export default function Home() {
               Web Developer Blog{" "}
               <FaWifi className="rotate-[45deg] text-primary inline-block" />
             </h3>
-            <ul className="grid grid-cols-12 gap-x-[16px] gap-y-[24px]">
+            <ul className="grid grid-cols-4 sm:grid-cols-12 gap-x-[16px] gap-y-[24px]">
               {posts &&
                 posts.map((post: IPost, idx: number) => {
                   return (
@@ -264,7 +264,7 @@ export default function Home() {
                           Tuananh Notebook
                         </span>
                       </h2>
-                      <div className="block border-[1px] border-[#d4cfcd] rounded-[12px] flex-1">
+                      <div className="block border-[1px] border-[#d4cfcd] rounded-[6px] sm:rounded-[12px] flex-1">
                         <PostCard data={post} />
                       </div>
                     </div>
