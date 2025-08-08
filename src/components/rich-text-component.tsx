@@ -79,7 +79,7 @@ const RichTextComponent = {
       </blockquote>
     ),
     normal: ({ children }: any) => (
-      <p className="odd:border-red-500 block leading-[1.425rem] text-[16px] my-[18px] text-[rgba(0,0,0,.87)] font-poppins">
+      <p className="odd:border-red-500 block leading-[1.425rem] text-[16px] my-[12px] text-[rgba(0,0,0,.87)] font-poppins">
         {children}
       </p>
     ),
